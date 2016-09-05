@@ -1,0 +1,14 @@
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Persistance\bin\Debug\MoneyManagement.Persistance.dll.config
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Persistance\bin\Debug\MoneyManagement.Persistance.dll
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Persistance\bin\Debug\MoneyManagement.Persistance.pdb
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Persistance\bin\Debug\EntityFramework.dll
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Persistance\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Persistance\bin\Debug\MoneyManagement.DomainModel.dll
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Persistance\bin\Debug\MoneyManagement.DomainModel.pdb
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Persistance\bin\Debug\EntityFramework.xml
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Persistance\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Persistance\obj\Debug\MoneyManagement.Persistance.csprojResolveAssemblyReference.cache
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Persistance\obj\Debug\MoneyManagement.Persistance.dll
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Persistance\obj\Debug\MoneyManagement.Persistance.pdb
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Persistance\obj\Debug\MoneyManagement.Persistance.Migrations.Initial.resources
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Persistance\obj\Debug\MoneyManagement.Persistance.csproj.GenerateResource.Cache

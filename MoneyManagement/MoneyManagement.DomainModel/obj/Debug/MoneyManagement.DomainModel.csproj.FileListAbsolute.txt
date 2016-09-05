@@ -1,0 +1,10 @@
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.DomainModel\bin\Debug\MoneyManagement.DomainModel.dll.config
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.DomainModel\bin\Debug\MoneyManagement.DomainModel.dll
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.DomainModel\bin\Debug\MoneyManagement.DomainModel.pdb
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.DomainModel\bin\Debug\EntityFramework.dll
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.DomainModel\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.DomainModel\bin\Debug\EntityFramework.xml
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.DomainModel\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.DomainModel\obj\Debug\MoneyManagement.DomainModel.csprojResolveAssemblyReference.cache
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.DomainModel\obj\Debug\MoneyManagement.DomainModel.dll
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.DomainModel\obj\Debug\MoneyManagement.DomainModel.pdb

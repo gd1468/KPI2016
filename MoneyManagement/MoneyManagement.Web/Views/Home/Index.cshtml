@@ -1,0 +1,36 @@
+﻿@using MoneyManagement.Web;
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div ng-app="bccHomeApp" ng-strict-di ng-cloak class="ng-cloak">
+    <bcc-header-actions page-id="homepage"></bcc-header-actions>
+
+    <bcc-validation-summary model="@ViewData["Exception"]"></bcc-validation-summary>
+
+    @if (!ViewData.ContainsKey("Exception"))
+    {
+        <pie-chart type='vendorInvoice' total-title='vendorInvoiceTopTotalsText' grouped-title="vendorInvoicesTopGroupedByMonthOfDueDateText">
+        </pie-chart>        <pie-chart type='clientInvoice' total-title='clientInvoiceTopTotalsText' grouped-title="clientInvoicesTopGroupedByMonthOfDueDateText">
+        </pie-chart>
+    }
+
+    <bcc-homepage-footer></bcc-homepage-footer>
+</div>
+@section StyleHeader{
+    @*<link href="~/Content/lib/angular-chart/angular-chart.css" rel="stylesheet" />*@
+}
+
+@section CommonScriptHeader{
+    @*<script src="~/Scripts/min/core-charts.min.js" type="text/javascript"></script>*@
+}
+
+@section CommonScriptFooter{
+    @*<script src="~/Scripts/min/adv-home.min.js"></script>*@
+}
+
+@section ScriptFooter{
+
+}
