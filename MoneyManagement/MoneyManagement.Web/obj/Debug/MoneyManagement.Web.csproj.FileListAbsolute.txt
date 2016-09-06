@@ -90,3 +90,11 @@ D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\obj\Debug\MoneyManageme
 D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\obj\Debug\MoneyManagement.Web.pdb
 D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\bin\Autofac.dll
 D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\bin\Autofac.xml
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\bin\Autofac.Integration.Mvc.dll
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\bin\Autofac.Integration.WebApi.dll
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\bin\MoneyManagement.ServiceLayer.dll
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\bin\MoneyManagement.ServiceLayer.pdb
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\bin\Autofac.Integration.Mvc.xml
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\bin\Autofac.Integration.WebApi.xml
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\bin\AutoMapper.dll
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\bin\AutoMapper.xml

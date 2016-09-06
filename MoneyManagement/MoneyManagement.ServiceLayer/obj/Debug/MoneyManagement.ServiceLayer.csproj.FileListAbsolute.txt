@@ -1,0 +1,12 @@
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.ServiceLayer\bin\Debug\MoneyManagement.ServiceLayer.dll.config
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.ServiceLayer\bin\Debug\MoneyManagement.ServiceLayer.dll
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.ServiceLayer\bin\Debug\MoneyManagement.ServiceLayer.pdb
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.ServiceLayer\bin\Debug\Autofac.dll
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.ServiceLayer\bin\Debug\EntityFramework.dll
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.ServiceLayer\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.ServiceLayer\bin\Debug\Autofac.xml
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.ServiceLayer\bin\Debug\EntityFramework.xml
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.ServiceLayer\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.ServiceLayer\obj\Debug\MoneyManagement.ServiceLayer.csprojResolveAssemblyReference.cache
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.ServiceLayer\obj\Debug\MoneyManagement.ServiceLayer.dll
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.ServiceLayer\obj\Debug\MoneyManagement.ServiceLayer.pdb
