@@ -88,3 +88,5 @@ D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\bin\System.Web.Http.Owi
 D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\obj\Debug\MoneyManagement.Web.csprojResolveAssemblyReference.cache
 D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\obj\Debug\MoneyManagement.Web.dll
 D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\obj\Debug\MoneyManagement.Web.pdb
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\bin\Autofac.dll
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\bin\Autofac.xml
