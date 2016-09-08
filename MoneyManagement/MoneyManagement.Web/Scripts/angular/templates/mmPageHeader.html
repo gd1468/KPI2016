@@ -1,3 +1,80 @@
 ﻿<div>
-    <p>Welcome</p>
+    <!--Header.cshtml (Fixed Navbar Top)-->
+    <div id="page-header" class="navbar-fixed-top header">
+        <nav class="navbar bg-primary main-menu">
+            <div class="container-fluid">
+                <a id="application-title" class="header-row-brand" href="/">
+                    <div class="brand-icon pull-left">
+                        <img src="/Content/images/logo.png" alt="{{::translations.applicationTitleText}}" title="{{::translations.applicationTitleText}}" />
+                    </div>
+                    <div class="navbar-header">
+                        <span ng-bind="::translations.applicationTitleText"></span>
+                    </div>
+                </a>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" nav-bar-menu="Media" ng-model="features">
+                    <ul class="nav navbar-nav" ng-if="navigation.$resolved">
+                        <li nav-bar-menu-item class="dropdown" area="Media"></li>
+                        <li nav-bar-menu-item class="dropdown" area="Finance"></li>
+                        <li nav-bar-single-item area="Reports" additional-functions="MediaWIP"></li>
+                    </ul>
+                    <div class="navbar-header">
+                        <span id="page-title" class="page-title" ng-if="pageTitle">{{pageTitle}} {{code | uppercase}}</span>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right" >
+                        <li>
+                            <a id="user-profile" ng-href="/user/profile/" class="header-row-icon" bcc-tooltip tooltip-text='{{translations.userProfileText}}'>
+                                <i class="fa fa-user"></i>
+                            </a>
+                        </li>
+
+                        
+
+                        <li nav-bar-menu-item class="dropdown" area="Configuration" nav-bar-version-info>
+                            <span product-version></span>
+                        </li>
+
+                        <li>
+                            <a href="/UserHelp/en-AU/Ignitia User Guide.pdf" target="_blank" class="header-row-icon" bcc-tooltip tooltip-text='{{translations.userGuideText}}'>
+                                <i class="fa fa-question"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+
+        <div class="container-fluid">
+            <div class="row action-row">
+                <input id="importUpload" ng-file-select type="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+                       style="width: 0px; height: 0px; visibility: hidden" />
+                <div class="action-row-icons" ng-class="{ 'col-xs-2': isSpecificPage, 'col-xs-8': !isSpecificPage }">
+                    <span ng-repeat="bt in pageDefinition.buttons" ng-show="bt.visible">
+                        <button bcc-button-type="{{bt.buttonType}}" ng-if="bt.id != 'btnSummary' && bt.id != 'btnDelete' && bt.id != 'btnSave'"
+                                ng-click="buttonClick(bt.action,$event)" id="{{bt.id}}" name="{{bt.name}}" bcc-tooltip tooltip-text='{{bt.toolTip}}'
+                                class="win-command" ng-disabled="bt.disabled || ((bt.initDisabled && isPristine()))">
+                            <span class="win-commandimage fa" ng-class="::('fa-' + bt.icon)" ng-style="{ color: bt.colour }"></span>
+                        </button>
+                        <button bcc-button-type="{{bt.buttonType}}" ng-if="bt.id == 'btnDelete' || bt.id == 'btnSave'"
+                                ng-click="buttonClick(bt.action,$event)" id="{{bt.id}}" name="{{bt.name}}" bcc-tooltip tooltip-text='{{bt.toolTip}}'
+                                class="win-command" ng-disabled="bt.disabled || ((bt.initDisabled && isPristine())) || $root.pageIsReadOnly || (bt.id == 'btnDelete' && $root.pageDeleteIsReadOnly)">
+                            <span class="win-commandimage fa" ng-class="::('fa-' + bt.icon)" ng-style="{ color: bt.colour }"></span>
+                        </button>
+                        <button bcc-button-type="button" ng-if="bt.id == 'btnSummary'" ng-click="buttonClick('summary()',$event); bt.active = !bt.active; bt.activeSubIcon = bt.activeSubIcon === bt.subIconDown ? bt.subIconUp : bt.subIconDown" id="btnShow" bcc-tooltip tooltip-text='{{bt.active ? bt.toolTipHide : bt.toolTip}}' class="win-command" ng-hide="showSummaryButton" type="button" ng-style="{ color: bt.colour }">
+                            <span class="win-commandimage fa" ng-class="::('fa-' + bt.icon)" ng-style="{ color: bt.colour }">
+                                <span class="fa win-command-subicon" ng-class="'fa-' + bt.activeSubIcon"></span>
+                            </span>
+                        </button>
+
+                    </span>
+                </div>
+                <ul class="col-xs-9 text-center list-inline info-text" ng-if="isSpecificPage">
+                    <li><label class="h5 schedule-info">{{::'scheduleText'|translation}}:</label><span>{{scheduleInfo.currentLanguageTranslation.name}}</span></li>
+                    <li><label class="h5 schedule-info">{{::'clientText'|translation}}:</label><span>{{scheduleInfo.bookingClient.displayName}}</span></li>
+                    <li><label class="h5 schedule-info">{{::'brandText'|translation}}:</label><span>{{scheduleInfo.brand.displayName}}</span></li>
+                    <li ng-hide="!scheduleInfo.startDate && !scheduleInfo.endDate"><label class="h5 schedule-info">{{::'dateText'|translation}}:</label><span>{{scheduleInfo.startDate | date:'dd/MM/yyyy'}} - {{scheduleInfo.endDate | date:'dd/MM/yyyy'}}</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
