@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MoneyManagement.Persistance.Interfaces
 {
-    interface IDbContext : IDisposable
+    public interface IDbContext : IDisposable
     {
         int SaveChanges();
         Task<int> SaveChangesAsync();

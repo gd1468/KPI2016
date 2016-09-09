@@ -4,7 +4,7 @@ using MoneyManagement.DomainModel.Domain;
 
 namespace MoneyManagement.Persistance.Interfaces
 {
-    interface IMoneyManagementContext:IDbContext
+    public interface IMoneyManagementContext:IDbContext
     {
         IDbSet<User> Users { get; set; }
         IDbSet<Account> Accounts { get; set; }

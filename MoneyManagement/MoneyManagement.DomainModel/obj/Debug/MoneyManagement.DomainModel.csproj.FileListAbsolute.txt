@@ -8,3 +8,5 @@ D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.DomainModel\bin\Debug\Entit
 D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.DomainModel\obj\Debug\MoneyManagement.DomainModel.csprojResolveAssemblyReference.cache
 D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.DomainModel\obj\Debug\MoneyManagement.DomainModel.dll
 D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.DomainModel\obj\Debug\MoneyManagement.DomainModel.pdb
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.DomainModel\bin\Debug\Autofac.dll
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.DomainModel\bin\Debug\Autofac.xml

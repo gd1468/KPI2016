@@ -1,15 +1,11 @@
 ﻿(function () {
     'use strict';
-    angular.module("mmHomeApp", ["ngRoute"])
+    angular.module("mmHomeApp", ['ngResource', 'ngRoute'])
         .directive("mmPageHeader", function () {
             return {
                 restrict: 'E',
-
                 transclude: true,
                 replace: true,
-                scope: {
-
-                },
                 templateUrl: '/Scripts/angular/templates/mmPageHeader.html'
             }
         })
@@ -23,9 +19,18 @@
                     passWord: "="
                 },
                 templateUrl: '/Scripts/angular/templates/mmLoginForm.html',
-                controller: ['$scope', function ($scope) {
-                    $scope.submit = function() {
-                        window.alert("Welcome " + $scope.userName);
+                controller: ['$scope', '$resource', function ($scope, $resource) {
+                    var api = $resource("/api/User");
+                    $scope.submit = function () {
+                        var user = {
+                            userName: $scope.userName,
+                            passWord: $scope.passWord
+                        };
+
+                        api.get(user).then(function(response) {
+                            window.alert("Welcome " + response.data);
+                        });
+                        
                     };
                 }]
             }

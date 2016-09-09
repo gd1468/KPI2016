@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyManagement.DomainModel
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyManagement.ServiceLayer", "MoneyManagement.ServiceLayer\MoneyManagement.ServiceLayer.csproj", "{550CF162-1E74-4A45-A5AA-ACF42E55AF81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyManagement.ServiceLayer.Interface", "MoneyManagement.ServiceLayer.Interface\MoneyManagement.ServiceLayer.Interface.csproj", "{303BD6C1-7D9C-4250-9078-8D70861078F6}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyManagement.Persistance", "MoneyManagement.Persistance\MoneyManagement.Persistance.csproj", "{E46FABEB-38E8-41FD-9A2B-3E54D662960C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyManagement.Web", "MoneyManagement.Web\MoneyManagement.Web.csproj", "{19EBF0A8-35BF-4B0E-873F-23E897C86DF6}"
@@ -27,10 +25,6 @@ Global
 		{550CF162-1E74-4A45-A5AA-ACF42E55AF81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{550CF162-1E74-4A45-A5AA-ACF42E55AF81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{550CF162-1E74-4A45-A5AA-ACF42E55AF81}.Release|Any CPU.Build.0 = Release|Any CPU
-		{303BD6C1-7D9C-4250-9078-8D70861078F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{303BD6C1-7D9C-4250-9078-8D70861078F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{303BD6C1-7D9C-4250-9078-8D70861078F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{303BD6C1-7D9C-4250-9078-8D70861078F6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E46FABEB-38E8-41FD-9A2B-3E54D662960C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E46FABEB-38E8-41FD-9A2B-3E54D662960C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E46FABEB-38E8-41FD-9A2B-3E54D662960C}.Release|Any CPU.ActiveCfg = Release|Any CPU

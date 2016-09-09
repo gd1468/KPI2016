@@ -98,3 +98,7 @@ D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\bin\Autofac.Integration
 D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\bin\Autofac.Integration.WebApi.xml
 D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\bin\AutoMapper.dll
 D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\bin\AutoMapper.xml
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\bin\MoneyManagement.Persistance.dll
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\bin\MoneyManagement.DomainModel.dll
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\bin\MoneyManagement.Persistance.pdb
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\bin\MoneyManagement.DomainModel.pdb
