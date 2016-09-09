@@ -102,3 +102,11 @@ D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\bin\MoneyManagement.Per
 D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\bin\MoneyManagement.DomainModel.dll
 D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\bin\MoneyManagement.Persistance.pdb
 D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\bin\MoneyManagement.DomainModel.pdb
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\bin\Autofac.Configuration.dll
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\bin\Microsoft.Extensions.Configuration.dll
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\bin\Microsoft.Extensions.Primitives.dll
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\bin\Autofac.Configuration.xml
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\bin\Microsoft.Extensions.Configuration.xml
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Web\bin\Microsoft.Extensions.Primitives.xml

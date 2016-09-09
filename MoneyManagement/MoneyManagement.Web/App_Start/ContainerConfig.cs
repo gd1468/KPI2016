@@ -37,9 +37,6 @@ namespace MoneyManagement.Web
             var webModule = new WebModule();
             builder.RegisterModule(webModule);
 
-            //var cqrsModule = new CQRSModule();
-            //builder.RegisterModule(cqrsModule);
-
             var requestModule = new AutofacWebTypesModule();
             builder.RegisterModule(requestModule);
 

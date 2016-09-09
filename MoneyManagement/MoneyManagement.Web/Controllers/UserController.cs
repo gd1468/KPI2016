@@ -14,9 +14,9 @@ namespace MoneyManagement.Web.Controllers
             _queryDispatcher = queryDispatcher;
         }
 
-        public Task<GetUserQuery.Result> Get([FromBody] GetUserQuery userQuery)
+        public async Task<GetUserQuery.Result> Get([FromUri] GetUserQuery userQuery)
         {
-            var user = _queryDispatcher.Execute<GetUserQuery, GetUserQuery.Result>(new GetUserQuery
+            var user = await _queryDispatcher.Execute<GetUserQuery, GetUserQuery.Result>(new GetUserQuery
             {
                 UserName = userQuery.UserName,
                 Password = userQuery.Password

@@ -2,15 +2,16 @@
 using System.Management.Instrumentation;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using Autofac;
 using MoneyManagement.ServiceLayer.Interfaces;
 
 namespace MoneyManagement.ServiceLayer.CQRS
 {
     public class QueryDispatcher : IQueryDispatcher
     {
-        private readonly IDependencyResolver _resolver;
+        private readonly IComponentContext _resolver;
 
-        public QueryDispatcher(IDependencyResolver resolver)
+        public QueryDispatcher(IComponentContext resolver)
         {
             _resolver = resolver;
         }
@@ -23,7 +24,7 @@ namespace MoneyManagement.ServiceLayer.CQRS
                 throw new ArgumentNullException("query");
             }
 
-            var handler = _resolver.GetService<IQueryHandler<TQuery, TResult>>();
+            var handler = _resolver.Resolve<IQueryHandler<TQuery, TResult>>();
 
             if (handler == null)
             {

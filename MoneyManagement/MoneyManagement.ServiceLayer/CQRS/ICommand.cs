@@ -1,17 +1,20 @@
-﻿namespace MoneyManagement.ServiceLayer.Interfaces
+﻿using System.Threading.Tasks;
+
+namespace MoneyManagement.ServiceLayer.Interfaces
 {
-    public interface ICommand
+    public interface ICommand<TResult>
     {
     }
 
-    public interface ICommandHandler<in TCommand> where TCommand: ICommand
+    public interface ICommandHandler<in TCommand, TResult>
+        where TCommand : ICommand<TResult>
     {
-        void Execute(TCommand command);
+        Task<TResult> Execute(TCommand command);
     }
 
     public interface ICommandDispatcher
     {
-        void Execute<TCommand>(TCommand command)
-            where TCommand : ICommand;
+        Task<TResult> Execute<TCommand, TResult>(TCommand query)
+            where TCommand : ICommand<TResult>;
     }
 }
