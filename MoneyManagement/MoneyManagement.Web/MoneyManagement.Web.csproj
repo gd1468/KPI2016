@@ -259,6 +259,9 @@
     <Compile Include="WebModule.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Finance\Scripts\Expenditure\controllers\expenditure-controller.js" />
+    <Content Include="Areas\Finance\Scripts\Expenditure\expenditure-app.js" />
+    <Content Include="Areas\Finance\Templates\Expenditure\Main.html" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\mmFormElementStyle.css" />
@@ -278,6 +281,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="Scripts\angular\angular-app.js" />
     <Content Include="Scripts\angular\directives\angular-directives.js" />
     <Content Include="Scripts\angular\templates\mmLoginForm.html" />
     <Content Include="Scripts\angular\templates\mmPageHeader.html" />
@@ -326,6 +330,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Finance\Models\" />
+    <Folder Include="Areas\Finance\Scripts\Expenditure\directives\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -1,7 +1,13 @@
-﻿
+﻿@using MoneyManagement.Web
 @{
-    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<script src="~/Areas/Finance/Scripts/Expenditure/expenditure-app.js"></script>
+<script src="~/Areas/Finance/Scripts/Expenditure/controllers/expenditure-controller.js"></script>
 
-<h2>Index</h2>
+<div ng-app="expenditureApp" ng-cloak>
+    <div ng-view> </div>
+</div>
 
+
+    

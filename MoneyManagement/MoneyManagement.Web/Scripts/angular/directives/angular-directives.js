@@ -1,6 +1,6 @@
 ﻿(function () {
     'use strict';
-    angular.module("mmHomeApp", ['ngResource', 'ngRoute'])
+    angular.module("mmHomeApp")
         .directive("mmPageHeader", function () {
             return {
                 restrict: 'E',
@@ -9,7 +9,7 @@
                 templateUrl: '/Scripts/angular/templates/mmPageHeader.html'
             }
         })
-        .directive('mmLoginForm', ['$resource', '$location', function ($resource, $location) {
+        .directive('mmLoginForm', ['$resource', '$location', '$window', function ($resource, $location, $window) {
             return {
                 restrict: 'E',
                 transclude: true,
@@ -30,8 +30,7 @@
 
                         api.get(user).$promise.then(function (response) {
                             if (response.User.UserName) {
-                                var landingUrl = $location.path("/Finance/Expenditure");
-                                $location.href = landingUrl;
+                                $window.location.href = "/Finance/Expenditure#/";
                             }
                             $scope.message = "User name or password is invalid";
                         });
