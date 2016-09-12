@@ -1,6 +1,6 @@
 ﻿'use strict';
 
 angular.module('expenditureApp')
-    .controller('expenditureController', [function () {
-
+    .controller('expenditureController', ['$scope', function ($scope) {
+        
     }]);

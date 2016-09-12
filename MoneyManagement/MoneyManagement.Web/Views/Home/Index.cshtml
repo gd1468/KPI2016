@@ -1,9 +1,9 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<link href="~/Content/css/mmLoginStyle.css" rel="stylesheet" />
+<link href="~/Content/css/mmFormElementStyle.css" rel="stylesheet" />
 
 <div ng-app="mmHomeApp" ng-cloak style="background-image: url(../../Content/images/background.jpg)">
     <mm-login-form user-name="userName" pass-word="passWord"></mm-login-form>
-    <div ng-view></div>
 </div>

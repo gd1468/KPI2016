@@ -31,8 +31,10 @@
                         api.get(user).$promise.then(function (response) {
                             if (response.User.UserName) {
                                 $window.location.href = "/Finance/Expenditure#/";
+                            } else {
+                                $scope.message = "User name or password is invalid";
                             }
-                            $scope.message = "User name or password is invalid";
+                            
                         });
 
                     };
