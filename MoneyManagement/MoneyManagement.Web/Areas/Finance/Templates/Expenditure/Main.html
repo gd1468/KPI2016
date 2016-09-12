@@ -1,1 +1,10 @@
-﻿<p>This is Main</p>
+﻿<div>
+    <div>
+        <mm-tab-control on-selected="setSelected(args)">
+            <mm-tab-item tab-title={{expenditureTab.tabName}} ng-repeat="expenditureTab in expenditureTabs" tab-id="{{expenditureTab.tabId}}">
+                <div ng-include="expenditureTab.include" ng-if="expenditureTab.loadedTab">{{expenditureTab.tabName}}</div>
+            </mm-tab-item>
+        </mm-tab-control>
+    </div>
+    <mm-page-header></mm-page-header>
+</div>

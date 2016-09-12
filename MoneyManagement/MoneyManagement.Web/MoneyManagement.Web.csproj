@@ -261,7 +261,10 @@
   <ItemGroup>
     <Content Include="Areas\Finance\Scripts\Expenditure\controllers\expenditure-controller.js" />
     <Content Include="Areas\Finance\Scripts\Expenditure\expenditure-app.js" />
+    <Content Include="Areas\Finance\Templates\Expenditure\Accounts.html" />
+    <Content Include="Areas\Finance\Templates\Expenditure\Budget.html" />
     <Content Include="Areas\Finance\Templates\Expenditure\Main.html" />
+    <Content Include="Areas\Finance\Templates\Expenditure\Records.html" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\mmFormElementStyle.css" />
