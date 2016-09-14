@@ -35,10 +35,10 @@
                     <div class="form-group" ng-form>
                         <!--<label class="control-label mandatory-field-label">Category</label>-->
                         <div class="input-group">
-
-                            <input type="text" placeholder="Category"
-                                   class="form-control input-small hide-spinner text-right" />
-
+                            <select class="form-control select2 text-right" ng-model="category">
+                                <option value="1">Cats</option>
+                                <option value="2">Dogs</option>
+                            </select>
                             <div class="input-group-addon"> C </div>
                         </div>
                     </div>
@@ -46,12 +46,9 @@
 
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
                     <div class="form-group" ng-form>
-                        <!--<label class="control-label mandatory-field-label">Description</label>-->
                         <div class="input-group">
-
                             <input type="text" placeholder="Description"
                                    class="form-control input-small hide-spinner text-right" />
-
                             <div class="input-group-addon"> D </div>
                         </div>
                     </div>
@@ -59,12 +56,11 @@
 
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
                     <div class="form-group" ng-form>
-                        <!--<label class="control-label mandatory-field-label">Account</label>-->
                         <div class="input-group">
-
-                            <input type="text" placeholder="Account"
-                                   class="form-control input-small hide-spinner text-right" />
-
+                            <select class="form-control select2 text-right" ng-model="account">
+                                <option value="1">ATM</option>
+                                <option value="2">Wallet</option>
+                            </select>
                             <div class="input-group-addon"> A </div>
                         </div>
                     </div>
@@ -72,17 +68,24 @@
 
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
                     <div class="form-group" ng-form>
-                        <!--<label class="control-label mandatory-field-label">Expenditure date</label>-->
-                        <div class="input-group">
-
-                            <input type="text" placeholder="Expenditure date"
-                                   class="form-control input-small hide-spinner text-right" />
-
-                            <div class="input-group-addon"> D </div>
-                        </div>
+                        <input type="text" class="form-control" date-picker
+                               ng-model="expenditureDate"
+                               model-name="expenditureDate" />
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script>
+    $.getScript('http://cdnjs.cloudflare.com/ajax/libs/select2/3.4.8/select2.min.js', function () {
+
+        /* dropdown and filter select */
+        $('.select2').select2({
+            placeholder: "Select a State"
+        });
+    }); //script
+
+
+    $(document).ready(function () { });
+</script>

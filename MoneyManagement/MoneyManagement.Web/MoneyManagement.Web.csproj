@@ -242,6 +242,7 @@
     <Compile Include="Areas\Finance\Controllers\ExpenditureController.cs" />
     <Compile Include="Areas\Finance\FinanceAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Finance\ExpenditureController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -261,15 +262,25 @@
   <ItemGroup>
     <Content Include="Areas\Finance\Scripts\Expenditure\controllers\expenditure-controller.js" />
     <Content Include="Areas\Finance\Scripts\Expenditure\expenditure-app.js" />
+    <Content Include="Areas\Finance\Scripts\Expenditure\services\expenditure-services.js" />
     <Content Include="Areas\Finance\Templates\Expenditure\Accounts.html" />
     <Content Include="Areas\Finance\Templates\Expenditure\Budget.html" />
     <Content Include="Areas\Finance\Templates\Expenditure\Main.html" />
     <Content Include="Areas\Finance\Templates\Expenditure\Records.html" />
+    <Content Include="Content\css\bootstrap-datepicker.css" />
+    <Content Include="Content\css\bootstrap-datepicker.min.css" />
+    <Content Include="Content\css\bootstrap-datepicker3.css" />
+    <Content Include="Content\css\bootstrap-datepicker3.min.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\mmFormElementStyle.css" />
     <Content Include="Content\css\mmStyle.css" />
     <Content Include="Content\css\mmLoginStyle.css" />
+    <Content Include="Content\css\select2-bootstrap-override.css" />
+    <Content Include="Content\css\select2-bootstrap.css" />
+    <Content Include="Content\css\select2-spinner.gif" />
+    <Content Include="Content\css\select2.css" />
+    <Content Include="Content\css\select2.png" />
     <Content Include="Content\images\background.jpg" />
     <Content Include="Content\images\loading.gif" />
     <Content Include="Content\images\logo.png" />
@@ -304,7 +315,9 @@
     <Content Include="fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\core-angular.min.js" />
+    <Content Include="Scripts\core-datepicker.min.js" />
     <Content Include="Scripts\core-jquery.min.js" />
+    <Content Include="Scripts\core-libs.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -315,6 +328,8 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\select2.full.min.js" />
+    <Content Include="Scripts\underscore-min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

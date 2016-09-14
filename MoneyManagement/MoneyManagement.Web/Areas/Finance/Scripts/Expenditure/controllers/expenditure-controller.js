@@ -9,6 +9,6 @@ angular.module('expenditureApp')
         ];
 
         $scope.setSelected = function (args) {
-            var selectedTab = args.selectedItem;
+            
         };
     }]);

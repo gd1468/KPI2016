@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Http;
-using MoneyManagement.ServiceLayer.ClientPresentations;
 using MoneyManagement.ServiceLayer.Interfaces;
 using MoneyManagement.ServiceLayer.Queries;
 

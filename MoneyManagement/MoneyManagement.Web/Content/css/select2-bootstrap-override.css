@@ -1,0 +1,43 @@
+﻿.select2-results .select2-no-results,
+.select2-results .select2-searching,
+.select2-results .select2-selection-limit {
+    background-color: transparent;
+    color: black;
+    font-size: 14px;
+    padding: 5px;
+}
+
+.select2-container .select2-choice {
+    height: 28px;
+    line-height: 1.3;
+}
+
+.select2-container .select2-choice .select2-arrow, .select2-container .select2-choice div {
+    border-left: 0 solid #cccccc;
+    background: none;
+}
+
+.select2-container .select2-choices .select2-search-field input,
+.select2-container .select2-choice,
+.select2-container .select2-choices {
+    font-family: 'Segoe UI', Tahoma, Helvetica, Sans-Serif;
+}
+
+.select2-search input {
+    font-family: 'Segoe UI', Tahoma, Helvetica, Sans-Serif;
+}
+
+.select2-container .select2-choice abbr {
+    top: 13px;
+    right: 20px;
+}
+
+.select2-container .select2-choice .select2-arrow {
+    width: 23px;
+    top: -2px;
+}
+
+.select2-container-multi .select2-choices .select2-search-field input {
+    height: 28px;
+    line-height: 1.3;
+}
