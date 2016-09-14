@@ -6,8 +6,15 @@
                     <!--<label class="control-label mandatory-field-label">Amount</label>-->
                     <div class="input-group">
 
-                        <input type="text" placeholder="Amount"
-                               class="form-control input-small hide-spinner text-right" />
+                        <input type="text"
+                               placeholder="Amount"
+                               class="form-control input-small hide-spinner text-right"
+                               display-decimals="0"
+                               decimal-input="0"
+                               ng-model="amount"
+                               max="99999999999999999"
+                               min="1"
+                               ng-required />
 
                         <div class="input-group-addon"> VND </div>
                     </div>

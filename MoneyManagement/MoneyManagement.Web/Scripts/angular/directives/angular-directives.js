@@ -157,5 +157,86 @@
                     }
                 };
             }
-    ]);
+    ])
+    .directive('decimalInput', ['$filter', function ($filter) {
+        function format(value, decimals) {
+            return $filter('number')(value, decimals);
+        };
+        return {
+            restrict: 'A',
+            require: 'ngModel',
+            link: function ($scope, $elem, $attr, ctrl) {
+
+                var decimals = parseInt($attr.decimalInput),
+                    displayDecimals = $attr.displayDecimals ? parseInt($attr.displayDecimals) : decimals,
+                    min, max;
+                if ($elem.prop('type') !== 'hidden')
+                    $elem.prop('type', 'text');
+                if (angular.isDefined($attr.min) || $attr.ngMin) {
+                    ctrl.$validators.min = function (value) {
+                        return ctrl.$isEmpty(value) || angular.isUndefined(min) || value >= min;
+                    };
+
+                    $attr.$observe('min', function (val) {
+                        if (angular.isDefined(val) && !angular.isNumber(val)) {
+                            val = parseFloat(val, 10);
+                        }
+                        min = angular.isNumber(val) && !isNaN(val) ? val : undefined;
+                        ctrl.$validate();
+                    });
+                }
+                if (angular.isDefined($attr.max) || $attr.ngMax) {
+                    ctrl.$validators.max = function (value) {
+                        return ctrl.$isEmpty(value) || angular.isUndefined(max) || value <= max;
+                    };
+
+                    $attr.$observe('max', function (val) {
+                        if (angular.isDefined(val) && !angular.isNumber(val)) {
+                            val = parseFloat(val, 10);
+                        }
+                        max = angular.isNumber(val) && !isNaN(val) ? val : undefined;
+                        ctrl.$validate();
+                    });
+                }
+                if (angular.isDefined($attr.require) || $attr.ngRequire) {
+                    ctrl.$validators.number = function (value) {
+                        return angular.isNumber(value);
+                    };
+                }
+
+                ctrl.$render = function () {
+                    $elem.val(format(ctrl.$modelValue, displayDecimals));
+                };
+                ctrl.$parsers.push(function (viewValue) {
+                    //this function ensure modelValue is number type before run validation in angular
+                    viewValue = parseFloat(viewValue);
+                    if (angular.isNumber(viewValue)) {
+                        viewValue = viewValue.toFixed(decimals);
+                        return +viewValue;
+                    }
+                    return viewValue;
+                });
+
+                var blur = function () {
+                    $scope.$evalAsync(function () {
+                        if (angular.isNumber(ctrl.$modelValue)) {
+                            //render formatted value to element
+                            ctrl.$render();
+                        }
+                    });
+                };
+
+                var focus = function () {
+                    var modelValue = ctrl.$modelValue;
+                    if (angular.isNumber(modelValue)) {
+                        $elem.val(modelValue.toFixed(decimals));
+                    }
+                    return $elem[0].select();
+                };
+
+                $elem.bind('blur', blur);
+                $elem.bind('focus', focus);
+            }
+        };
+    }]);
 })();
