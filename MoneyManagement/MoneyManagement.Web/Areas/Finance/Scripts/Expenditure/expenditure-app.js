@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-angular.module('expenditureApp', ['ngRoute', 'mmHomeApp'])
+angular.module('expenditureApp', ['ngRoute', 'mmHomeApp', 'expenditureServices'])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/', {
             templateUrl: '/Areas/Finance/Templates/Expenditure/Main.html',
@@ -9,4 +9,7 @@ angular.module('expenditureApp', ['ngRoute', 'mmHomeApp'])
         .otherwise({
             redirectTo: '/'
         });
+    }])
+    .run(['$rootScope', function ($rootScope) {
+
     }]);

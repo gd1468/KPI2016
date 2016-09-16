@@ -35,11 +35,10 @@
                     <div class="form-group" ng-form>
                         <!--<label class="control-label mandatory-field-label">Category</label>-->
                         <div class="input-group">
-                            <select class="form-control select2 text-right" ng-model="category">
-                                <option value="1">Cats</option>
-                                <option value="2">Dogs</option>
-                            </select>
-                            <div class="input-group-addon"> C </div>
+                            <select class="form-control select2 text-right"
+                                    ng-options="budget.displayName for budget in budgets track by budget.keyId"
+                                    ng-model="selectedBudget"></select>
+                            <div class="input-group-addon"> B </div>
                         </div>
                     </div>
                 </div>
@@ -57,10 +56,9 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
                     <div class="form-group" ng-form>
                         <div class="input-group">
-                            <select class="form-control select2 text-right" ng-model="account">
-                                <option value="1">ATM</option>
-                                <option value="2">Wallet</option>
-                            </select>
+                            <select class="form-control select2 text-right"
+                                    ng-options="account.displayName for account in accounts track by account.keyId"
+                                    ng-model="selectedAccount"></select>
                             <div class="input-group-addon"> A </div>
                         </div>
                     </div>
@@ -77,15 +75,3 @@
         </div>
     </div>
 </div>
-<script>
-    $.getScript('http://cdnjs.cloudflare.com/ajax/libs/select2/3.4.8/select2.min.js', function () {
-
-        /* dropdown and filter select */
-        $('.select2').select2({
-            placeholder: "Select a State"
-        });
-    }); //script
-
-
-    $(document).ready(function () { });
-</script>

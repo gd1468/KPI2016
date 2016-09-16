@@ -10,7 +10,7 @@
             }
         })
         .directive('mmLoginForm', [
-            '$resource', '$location', '$window', function ($resource, $location, $window) {
+            '$resource', '$rootScope', '$window', function ($resource, $rootScope, $window) {
                 return {
                     restrict: 'E',
                     transclude: true,
@@ -32,6 +32,7 @@
 
                                 api.get(user).$promise.then(function (response) {
                                     if (response.User.UserName) {
+                                        $rootScope.user = { userName: response.User.UserName }
                                         $window.location.href = "/Finance/Expenditure#/";
                                     } else {
                                         $scope.message = "User name or password is invalid";

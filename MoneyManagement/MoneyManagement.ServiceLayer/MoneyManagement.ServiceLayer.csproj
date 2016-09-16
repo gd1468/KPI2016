@@ -119,12 +119,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseModule.cs" />
+    <Compile Include="ClientPresentations\AccountPresentation.cs" />
+    <Compile Include="ClientPresentations\BudgetPresentation.cs" />
     <Compile Include="ClientPresentations\UserPresentation.cs" />
     <Compile Include="CQRS\CommandDispatcher.cs" />
     <Compile Include="CQRS\QueryDispatcher.cs" />
     <Compile Include="CQRS\ICommand.cs" />
     <Compile Include="CQRS\IQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\GetAccountByIdQuery.cs" />
+    <Compile Include="Queries\GetAccountQuery.cs" />
+    <Compile Include="Queries\GetBudgetByIdQuery.cs" />
+    <Compile Include="Queries\GetBudgetQuery.cs" />
     <Compile Include="Queries\GetUserQuery.cs" />
   </ItemGroup>
   <ItemGroup>
