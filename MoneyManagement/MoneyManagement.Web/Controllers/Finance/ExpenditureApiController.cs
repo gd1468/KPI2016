@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Web.Http;
+using MoneyManagement.ServiceLayer.Commands;
 using MoneyManagement.ServiceLayer.Interfaces;
 using MoneyManagement.ServiceLayer.Queries;
 
@@ -8,15 +9,15 @@ namespace MoneyManagement.Web.Controllers.Finance
 {
     public class ExpenditureApiController : ApiController
     {
-        private readonly IQueryDispatcher _queryDispatcher;
-        public ExpenditureApiController(IQueryDispatcher queryDispatcher)
+        private readonly ICommandDispatcher _commandDispatcher;
+        public ExpenditureApiController(ICommandDispatcher commandDispatcher)
         {
-            _queryDispatcher = queryDispatcher;
+            _commandDispatcher = commandDispatcher;
         }
 
-        public Task<SaveExpenditureCommand.Result> Post(SaveExpenditureCommand command)
+        public async Task<SaveExpenditureCommand.Result> Post(SaveExpenditureCommand command)
         {
-            
-        } 
+            return await _commandDispatcher.Execute<SaveExpenditureCommand, SaveExpenditureCommand.Result>(command);
+        }
     }
 }

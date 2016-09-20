@@ -127,6 +127,18 @@
     <Compile Include="Migrations\201607201321512_Initial.Designer.cs">
       <DependentUpon>201607201321512_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609201250047_ChangeExpenditureRelationship.cs" />
+    <Compile Include="Migrations\201609201250047_ChangeExpenditureRelationship.Designer.cs">
+      <DependentUpon>201609201250047_ChangeExpenditureRelationship.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609201258107_ChangeExpenditureUserRelationship.cs" />
+    <Compile Include="Migrations\201609201258107_ChangeExpenditureUserRelationship.Designer.cs">
+      <DependentUpon>201609201258107_ChangeExpenditureUserRelationship.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609201305395_cascade.cs" />
+    <Compile Include="Migrations\201609201305395_cascade.Designer.cs">
+      <DependentUpon>201609201305395_cascade.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MoneyManagementDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -144,6 +156,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201607201321512_Initial.resx">
       <DependentUpon>201607201321512_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609201250047_ChangeExpenditureRelationship.resx">
+      <DependentUpon>201609201250047_ChangeExpenditureRelationship.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609201258107_ChangeExpenditureUserRelationship.resx">
+      <DependentUpon>201609201258107_ChangeExpenditureUserRelationship.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609201305395_cascade.resx">
+      <DependentUpon>201609201305395_cascade.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

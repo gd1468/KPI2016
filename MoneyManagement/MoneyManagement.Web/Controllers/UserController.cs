@@ -13,7 +13,7 @@ namespace MoneyManagement.Web.Controllers
             _queryDispatcher = queryDispatcher;
         }
 
-        public async Task<GetUserQuery.Result> Get([FromUri] GetUserQuery userQuery)
+        public async Task<GetUserQuery.Result> Post([FromBody] GetUserQuery userQuery)
         {
             var user = await _queryDispatcher.Execute<GetUserQuery, GetUserQuery.Result>(new GetUserQuery
             {

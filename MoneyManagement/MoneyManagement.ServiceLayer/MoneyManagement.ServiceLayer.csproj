@@ -123,6 +123,7 @@
     <Compile Include="ClientPresentations\BudgetPresentation.cs" />
     <Compile Include="ClientPresentations\CulturePresentation.cs" />
     <Compile Include="ClientPresentations\UserPresentation.cs" />
+    <Compile Include="Commands\SaveExpenditureCommand.cs" />
     <Compile Include="CQRS\CommandDispatcher.cs" />
     <Compile Include="CQRS\QueryDispatcher.cs" />
     <Compile Include="CQRS\ICommand.cs" />
@@ -139,9 +140,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Commands\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\MoneyManagement.DomainModel\MoneyManagement.DomainModel.csproj">
       <Project>{EB24D51D-8E8F-45ED-BAC3-C04CD0265F27}</Project>

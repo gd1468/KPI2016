@@ -33,7 +33,8 @@ namespace MoneyManagement.ServiceLayer.Queries
             {
                 User = new UserPresentation
                 {
-                    UserName = user?.Username
+                    KeyId = user.KeyId,
+                    UserName = user.Username
                 }
             };
         }

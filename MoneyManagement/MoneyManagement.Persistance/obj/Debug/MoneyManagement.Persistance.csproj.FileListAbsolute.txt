@@ -43,3 +43,6 @@ D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Persistance\bin\Debug\Autof
 D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Persistance\bin\Debug\Newtonsoft.Json.xml
 D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Persistance\bin\Debug\System.Net.Http.Formatting.xml
 D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Persistance\bin\Debug\System.Web.Http.xml
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Persistance\obj\Debug\MoneyManagement.Persistance.Migrations.ChangeExpenditureRelationship.resources
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Persistance\obj\Debug\MoneyManagement.Persistance.Migrations.ChangeExpenditureUserRelationship.resources
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.Persistance\obj\Debug\MoneyManagement.Persistance.Migrations.cascade.resources

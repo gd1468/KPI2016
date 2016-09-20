@@ -17,7 +17,7 @@ namespace MoneyManagement.Persistance.Migrations
         private readonly List<Budget> _budgets = new List<Budget>();
         private readonly List<Culture> _cultures = new List<Culture>();
         private readonly List<AccountTranslation> _accountTranslations = new List<AccountTranslation>();
-        private List<BudgetTranslation> _budgetTranslations = new List<BudgetTranslation>();
+        private readonly List<BudgetTranslation> _budgetTranslations = new List<BudgetTranslation>();
 
         public Configuration()
         {

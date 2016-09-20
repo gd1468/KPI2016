@@ -12,5 +12,7 @@ namespace MoneyManagement.DomainModel.Domain
         public virtual Budget Budget { get; set; }
         public Guid AccountId { get; set; }
         public virtual Account Account { get; set; }
+        public User User { get; set; }
+        public Guid UserId { get; set; }
     }
 }

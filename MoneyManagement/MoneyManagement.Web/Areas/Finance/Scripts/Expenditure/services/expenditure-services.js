@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('expenditureServices', [])
-        .factory('expenditureService', ['$resource', 'accountService', 'budgetService', function ($resource, accountService, budgetService) {
+        .factory('expenditureService', ['$http', function ($http) {
             var url = '/api/ExpenditureApi';
             var createNewExpenditureRecord = function (model) {
                 var expenditureApi = $http.post(url, model);

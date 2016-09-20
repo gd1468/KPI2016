@@ -10,7 +10,7 @@
             }
         })
         .directive('mmLoginForm', [
-            '$resource', '$rootScope', '$window', function ($resource, $rootScope, $window) {
+            '$resource', '$rootScope', '$window', 'authenticationService', function ($resource, $rootScope, $window, authenticationService) {
                 return {
                     restrict: 'E',
                     transclude: true,
@@ -23,23 +23,12 @@
                     controller: [
                         '$scope', function ($scope) {
                             $scope.message = "Enter your username and password to log on";
-                            var api = $resource("/api/User");
                             $scope.submit = function () {
-                                var user = {
-                                    userName: $scope.userName,
-                                    passWord: $scope.passWord
-                                };
-
-                                api.get(user).$promise.then(function (response) {
-                                    if (response.User.UserName) {
-                                        $rootScope.user = { userName: response.User.UserName }
-                                        $window.location.href = "/Finance/Expenditure#/";
-                                    } else {
-                                        $scope.message = "User name or password is invalid";
-                                    }
-
+                                authenticationService.login($scope.userName, $scope.passWord).then(function (response) {
+                                    $window.location.href = "/Finance/Expenditure#/";
+                                }, function (error) {
+                                    $scope.message = "User name or password is invalid";
                                 });
-
                             };
                         }
                     ]

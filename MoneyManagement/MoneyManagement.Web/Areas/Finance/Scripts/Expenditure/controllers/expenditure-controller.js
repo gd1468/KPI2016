@@ -45,8 +45,16 @@ angular.module('expenditureApp')
             };
 
             $scope.onSubmit = function (form) {
-                if (form && form.isValid) {
-                    expenditureService.createNewExpenditureRecord($scope.model).then(function (response) {
+                if (form && form.$valid) {
+                    var model = {
+                        amount: $scope.model.amount,
+                        budgetId: $scope.model.budget.KeyId,
+                        accountId: $scope.model.account.KeyId,
+                        expenditureDate: $scope.model.expenditureDate,
+                        description: $scope.model.description,
+                        userId: $scope.user.keyId
+                    };
+                    expenditureService.createNewExpenditureRecord(model).then(function (response) {
                         $scope.resetForm(form);
                     });
                 } else {

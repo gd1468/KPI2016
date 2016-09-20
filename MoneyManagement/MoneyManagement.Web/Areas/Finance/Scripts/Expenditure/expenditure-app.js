@@ -10,8 +10,13 @@ angular.module('expenditureApp', ['ngRoute', 'mmHomeApp', 'expenditureServices']
             redirectTo: '/'
         });
     }])
-    .run(['$rootScope', 'cultureService', function ($rootScope, cultureService) {
+    .run(['$rootScope', 'cultureService', 'authenticationService', '$window', function ($rootScope, cultureService, authenticationService, $window) {
         cultureService.cultures.then(function (response) {
             $rootScope.culture = response.CulturePresentation;
         });
+        if ($window.sessionStorage["userInfo"]) {
+            $rootScope.user = JSON.parse($window.sessionStorage["userInfo"]);
+        } else {
+            $window.location.href = "/";
+        }
     }]);

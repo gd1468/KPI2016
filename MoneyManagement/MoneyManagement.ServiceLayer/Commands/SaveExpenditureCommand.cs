@@ -13,6 +13,7 @@ namespace MoneyManagement.ServiceLayer.Commands
         public DateTime ExpenditureDate { get; set; }
         public Guid BudgetId { get; set; }
         public Guid AccountId { get; set; }
+        public Guid UserId { get; set; }
         public class Result
         {
             public Boolean IsSuccess { get; set; }
@@ -38,7 +39,10 @@ namespace MoneyManagement.ServiceLayer.Commands
                 CreatedOn = DateTime.Now,
                 ExpenditureDate = command.ExpenditureDate,
                 Description = command.Description,
-                LastTime = DateTime.Now
+                LastTime = DateTime.Now,
+                CreatedById = command.UserId,
+                LastUserId = command.UserId,
+                UserId = command.UserId
             };
 
             _db.Expenditures.Add(expenditure);
