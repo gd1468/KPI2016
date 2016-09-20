@@ -31,6 +31,7 @@ namespace MoneyManagement.Persistance.Migrations
             AddAccount(context);
             AddAccountTranslation(context);
             AddBudget(context);
+            AddBudgetTranslation(context);
         }
 
         private void AddUser(MoneyManagement.Persistance.MoneyManagementDbContext context)
@@ -46,6 +47,7 @@ namespace MoneyManagement.Persistance.Migrations
                     LastTime = DateTime.Now,
                     LastUserId = Guid.NewGuid(),
                     ShortName = "Dai Nguyen",
+                    KeyId = Guid.NewGuid(),
                     UserInformation = new UserInformation
                     {
                         Address = new Address
@@ -77,7 +79,19 @@ namespace MoneyManagement.Persistance.Migrations
                     LastTime = DateTime.Now,
                     LastUserId = _users[0].KeyId,
                     Balance = 888888,
-                    UserId = _users[0].KeyId
+                    UserId = _users[0].KeyId,
+                    KeyId = Guid.NewGuid()
+                },
+                new Account
+                {
+                    ShortName = "Wallet",
+                    CreatedById = _users[0].KeyId,
+                    CreatedOn = DateTime.Now,
+                    LastTime = DateTime.Now,
+                    LastUserId = _users[0].KeyId,
+                    Balance = 888888,
+                    UserId = _users[0].KeyId,
+                    KeyId = Guid.NewGuid()
                 }
             });
 
@@ -99,7 +113,19 @@ namespace MoneyManagement.Persistance.Migrations
                     CreatedOn = DateTime.Now,
                     LastTime = DateTime.Now,
                     LastUserId = _users[0].KeyId,
-                    CultureId = _cultures[0].KeyId
+                    CultureId = _cultures[0].KeyId,
+                    KeyId = Guid.NewGuid()
+                },
+                new AccountTranslation
+                {
+                    Name = "Wallet",
+                    TranslationOfId = _accounts[1].KeyId,
+                    CreatedById = _users[0].KeyId,
+                    CreatedOn = DateTime.Now,
+                    LastTime = DateTime.Now,
+                    LastUserId = _users[0].KeyId,
+                    CultureId = _cultures[0].KeyId,
+                    KeyId = Guid.NewGuid()
                 }
             });
 
@@ -125,7 +151,23 @@ namespace MoneyManagement.Persistance.Migrations
                     LastUserId = _users[0].KeyId,
                     ShortName = "Lunch",
                     Total = 300000,
-                    UserId = _users[0].KeyId
+                    UserId = _users[0].KeyId,
+                    KeyId = Guid.NewGuid()
+                },
+                new Budget
+                {
+                    LastTime = DateTime.Now,
+                    CreatedById = _users[0].KeyId,
+                    Balance = 500000,
+                    CreatedOn = DateTime.Now,
+                    EffectiveFrom = DateTime.Now,
+                    EffectiveTo = DateTime.Now.AddMonths(1),
+                    Expensed = 0,
+                    LastUserId = _users[0].KeyId,
+                    ShortName = "Fuel",
+                    Total = 500000,
+                    UserId = _users[0].KeyId,
+                    KeyId = Guid.NewGuid()
                 }
             });
 
@@ -141,13 +183,25 @@ namespace MoneyManagement.Persistance.Migrations
             {
                 new BudgetTranslation
                 {
-                    Name = "ATM",
-                    TranslationOfId = _accounts[0].KeyId,
+                    Name = "L",
+                    TranslationOfId = _budgets[0].KeyId,
                     CreatedById = _users[0].KeyId,
                     CreatedOn = DateTime.Now,
                     LastTime = DateTime.Now,
                     LastUserId = _users[0].KeyId,
-                    CultureId = _cultures[0].KeyId
+                    CultureId = _cultures[0].KeyId,
+                    KeyId = Guid.NewGuid()
+                },
+                new BudgetTranslation
+                {
+                    Name = "F",
+                    TranslationOfId = _budgets[1].KeyId,
+                    CreatedById = _users[0].KeyId,
+                    CreatedOn = DateTime.Now,
+                    LastTime = DateTime.Now,
+                    LastUserId = _users[0].KeyId,
+                    CultureId = _cultures[0].KeyId,
+                    KeyId = Guid.NewGuid()
                 }
             });
 
@@ -168,7 +222,8 @@ namespace MoneyManagement.Persistance.Migrations
                     CreatedById = _users[0].KeyId,
                     CreatedOn = DateTime.Now,
                     IsPrimary = true,
-                    ShortName = "en-AU"
+                    ShortName = "en-AU",
+                    KeyId = Guid.NewGuid()
                 }
             });
 

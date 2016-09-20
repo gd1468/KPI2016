@@ -242,6 +242,7 @@
     <Compile Include="Areas\Finance\Controllers\ExpenditureController.cs" />
     <Compile Include="Areas\Finance\FinanceAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CultureApiController.cs" />
     <Compile Include="Controllers\Finance\AccountApiController.cs" />
     <Compile Include="Controllers\Finance\BudgetApiController.cs" />
     <Compile Include="Controllers\Finance\ExpenditureApiController.cs" />
@@ -251,6 +252,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />

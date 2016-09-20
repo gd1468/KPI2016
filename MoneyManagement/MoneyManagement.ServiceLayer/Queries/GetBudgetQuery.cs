@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web.Http;
 using MoneyManagement.Persistance.Interfaces;
 using MoneyManagement.ServiceLayer.ClientPresentations;
 using MoneyManagement.ServiceLayer.Interfaces;
@@ -25,9 +26,9 @@ namespace MoneyManagement.ServiceLayer.Queries
         {
             _db = db;
         }
-        public async Task<GetBudgetQuery.Result> Execute(GetBudgetQuery query)
+        public async Task<GetBudgetQuery.Result> Execute([FromUri]GetBudgetQuery query)
         {
-            var budgets = _db.Accounts.AsEnumerable().Select(x => new BudgetPresentation
+            var budgets = _db.Budgets.AsEnumerable().Select(x => new BudgetPresentation
             {
                 KeyId = x.KeyId,
                 DisplayName = x.Translations.Any() ? string.Format("[{0}] {1}", x.ShortName, x.Translations.FirstOrDefault(y => y.CultureId == query.CultureId)?.Name) : x.ShortName

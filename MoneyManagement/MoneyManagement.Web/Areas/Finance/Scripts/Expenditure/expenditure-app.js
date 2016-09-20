@@ -10,6 +10,8 @@ angular.module('expenditureApp', ['ngRoute', 'mmHomeApp', 'expenditureServices']
             redirectTo: '/'
         });
     }])
-    .run(['$rootScope', function ($rootScope) {
-
+    .run(['$rootScope', 'cultureService', function ($rootScope, cultureService) {
+        cultureService.cultures.then(function (response) {
+            $rootScope.culture = response.CulturePresentation;
+        });
     }]);

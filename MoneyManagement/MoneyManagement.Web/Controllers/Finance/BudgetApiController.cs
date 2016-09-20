@@ -15,7 +15,7 @@ namespace MoneyManagement.Web.Controllers.Finance
         }
 
         [HttpGet]
-        public async Task<GetBudgetByIdQuery.Result> Account(Guid id)
+        public async Task<GetBudgetByIdQuery.Result> Budget(Guid id)
         {
             return await _queryDispatcher.Execute<GetBudgetByIdQuery, GetBudgetByIdQuery.Result>(new GetBudgetByIdQuery
             {
@@ -24,9 +24,9 @@ namespace MoneyManagement.Web.Controllers.Finance
         }
 
         [HttpGet]
-        public async Task<GetBudgetQuery.Result> Account()
+        public async Task<GetBudgetQuery.Result> Budget([FromUri]GetBudgetQuery query)
         {
-            return await _queryDispatcher.Execute<GetBudgetQuery, GetBudgetQuery.Result>(new GetBudgetQuery());
+            return await _queryDispatcher.Execute<GetBudgetQuery, GetBudgetQuery.Result>(query);
         }
     }
 }

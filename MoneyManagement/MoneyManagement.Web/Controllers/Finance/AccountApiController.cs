@@ -24,9 +24,9 @@ namespace MoneyManagement.Web.Controllers.Finance
         }
 
         [HttpGet]
-        public async Task<GetAccountQuery.Result> Account()
+        public async Task<GetAccountQuery.Result> Account([FromUri]GetAccountQuery query)
         {
-            return await _queryDispatcher.Execute<GetAccountQuery, GetAccountQuery.Result>(new GetAccountQuery());
+            return await _queryDispatcher.Execute<GetAccountQuery, GetAccountQuery.Result>(query);
         }
     }
 }

@@ -36,7 +36,7 @@
                         <!--<label class="control-label mandatory-field-label">Category</label>-->
                         <div class="input-group">
                             <select class="form-control select2 text-right"
-                                    ng-options="budget.displayName for budget in budgets track by budget.keyId"
+                                    ng-options="budget.DisplayName for budget in budgets track by budget.KeyId"
                                     ng-model="selectedBudget"></select>
                             <div class="input-group-addon"> B </div>
                         </div>
@@ -57,7 +57,7 @@
                     <div class="form-group" ng-form>
                         <div class="input-group">
                             <select class="form-control select2 text-right"
-                                    ng-options="account.displayName for account in accounts track by account.keyId"
+                                    ng-options="account.DisplayName for account in accounts track by account.KeyId"
                                     ng-model="selectedAccount"></select>
                             <div class="input-group-addon"> A </div>
                         </div>

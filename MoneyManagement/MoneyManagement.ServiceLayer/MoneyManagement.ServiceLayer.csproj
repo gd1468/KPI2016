@@ -121,6 +121,7 @@
     <Compile Include="BaseModule.cs" />
     <Compile Include="ClientPresentations\AccountPresentation.cs" />
     <Compile Include="ClientPresentations\BudgetPresentation.cs" />
+    <Compile Include="ClientPresentations\CulturePresentation.cs" />
     <Compile Include="ClientPresentations\UserPresentation.cs" />
     <Compile Include="CQRS\CommandDispatcher.cs" />
     <Compile Include="CQRS\QueryDispatcher.cs" />
@@ -131,6 +132,7 @@
     <Compile Include="Queries\GetAccountQuery.cs" />
     <Compile Include="Queries\GetBudgetByIdQuery.cs" />
     <Compile Include="Queries\GetBudgetQuery.cs" />
+    <Compile Include="Queries\GetCultureQuery.cs" />
     <Compile Include="Queries\GetUserQuery.cs" />
   </ItemGroup>
   <ItemGroup>
