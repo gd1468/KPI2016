@@ -211,7 +211,7 @@
                         }
                         if (angular.isDefined($attr.require) || $attr.ngRequire) {
                             ctrl.$validators.number = function (value) {
-                                return angular.isNumber(value);
+                                return angular.isNumber(value) && !isNaN(ctrl.$modelValue);
                             };
                         }
 
@@ -221,16 +221,18 @@
                         ctrl.$parsers.push(function (viewValue) {
                             //this function ensure modelValue is number type before run validation in angular
                             viewValue = parseFloat(viewValue);
-                            if (angular.isNumber(viewValue)) {
+                            if (angular.isNumber(viewValue) && !isNaN(viewValue)) {
                                 viewValue = viewValue.toFixed(decimals);
-                                return +viewValue;
+                                ctrl.$setValidity("", true);
+                                return viewValue;
                             }
+                            ctrl.$setValidity("", false);
                             return viewValue;
                         });
 
                         var blur = function () {
                             $scope.$evalAsync(function () {
-                                if (angular.isNumber(ctrl.$modelValue)) {
+                                if (angular.isNumber(ctrl.$modelValue) && !isNaN(ctrl.$modelValue)) {
                                     //render formatted value to element
                                     ctrl.$render();
                                 }
@@ -239,7 +241,7 @@
 
                         var focus = function () {
                             var modelValue = ctrl.$modelValue;
-                            if (angular.isNumber(modelValue)) {
+                            if (angular.isNumber(modelValue) && !isNaN(ctrl.$modelValue)) {
                                 $elem.val(modelValue.toFixed(decimals));
                             }
                             return $elem[0].select();

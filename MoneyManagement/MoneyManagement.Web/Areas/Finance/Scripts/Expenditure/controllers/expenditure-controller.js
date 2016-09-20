@@ -18,6 +18,21 @@ angular.module('expenditureApp')
                 });
             });
 
+            var createExpenditureModel = function () {
+                return {
+                    amount: null,
+                    budget: null,
+                    account: null,
+                    expenditureDate: null,
+                    description: null
+                };
+            };
+
+            var resetForm = function (form) {
+
+            };
+
+            $scope.model = createExpenditureModel();
 
             $scope.expenditureTabs = [
                 { tabName: 'Records', tabId: 1, include: '/Areas/Finance/Templates/Expenditure/Records.html', loadedTab: true },
@@ -27,5 +42,24 @@ angular.module('expenditureApp')
 
             $scope.setSelected = function (args) {
 
+            };
+
+            $scope.onSubmit = function (form) {
+                if (form && form.isValid) {
+                    expenditureService.createNewExpenditureRecord($scope.model).then(function (response) {
+                        $scope.resetForm(form);
+                    });
+                } else {
+                    window.alert("invalid");
+                }
+            };
+
+            $scope.resetForm = function (form) {
+                if (form) {
+                    form.$setPristine();
+                    form.$setUntouched();
+                    $(".select2").select2("data", null);
+                    $scope.model = createExpenditureModel();
+                }
             };
         }]);

@@ -1,9 +1,14 @@
 ﻿(function () {
     angular.module('expenditureServices', [])
         .factory('expenditureService', ['$resource', 'accountService', 'budgetService', function ($resource, accountService, budgetService) {
+            var url = '/api/ExpenditureApi';
+            var createNewExpenditureRecord = function (model) {
+                var expenditureApi = $http.post(url, model);
+                return expenditureApi;
+            };
 
             return {
-
+                createNewExpenditureRecord: createNewExpenditureRecord
             };
         }])
         .service('accountService', ['$resource', function ($resource) {

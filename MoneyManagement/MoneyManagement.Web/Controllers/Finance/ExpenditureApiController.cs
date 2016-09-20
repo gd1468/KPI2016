@@ -13,5 +13,10 @@ namespace MoneyManagement.Web.Controllers.Finance
         {
             _queryDispatcher = queryDispatcher;
         }
+
+        public Task<SaveExpenditureCommand.Result> Post(SaveExpenditureCommand command)
+        {
+            
+        } 
     }
 }
