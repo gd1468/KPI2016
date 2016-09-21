@@ -18,8 +18,8 @@
                 }
             });
 
-            var accounts = function (cultureId) {
-                return accountApi.get({ cultureId: cultureId }).$promise;
+            var accounts = function (cultureId, userId) {
+                return accountApi.get({ cultureId: cultureId, userId: userId }).$promise;
             };
 
             this.accounts = accounts;
@@ -27,19 +27,24 @@
             this.getAccountById = function (id, cultureId) {
                 return accountApi.get({ id: '@id', cultureId: cultureId });
             };
+
+            this.createNewAccount = function (model) {
+                return accountApi.save(model).$promise;
+            };
         }])
         .factory('budgetService', ['$resource', function ($resource) {
             var budgetApi = $resource('/api/BudgetApi/', {
                 params: {
-                    cultureId: '@cultureId'
+                    cultureId: '@cultureId',
+                    userId: '@user'
                 }
             });
             var getBudgetById = function (id) {
                 return budgetApi.get({ id: id });
             }
             return {
-                budgets: function (cultureId) {
-                    return budgetApi.get({ cultureId: cultureId }).$promise;
+                budgets: function (cultureId, user) {
+                    return budgetApi.get({ cultureId: cultureId, userId: user }).$promise;
                 },
                 getBudgetById: getBudgetById
             }

@@ -9,11 +9,11 @@ angular.module('expenditureApp')
         '$rootScope',
         '$timeout', function ($scope, expenditureService, accountService, budgetService, $rootScope, $timeout) {
             $timeout(function () {
-                accountService.accounts($rootScope.culture.KeyId).then(function (response) {
+                accountService.accounts($rootScope.culture.KeyId, $scope.user.keyId).then(function (response) {
                     $scope.accounts = response.AccountPresentations;
                 });
 
-                budgetService.budgets($rootScope.culture.KeyId).then(function (response) {
+                budgetService.budgets($rootScope.culture.KeyId, $scope.user.keyId).then(function (response) {
                     $scope.budgets = response.BudgetPresentations;
                 });
             });
@@ -27,12 +27,6 @@ angular.module('expenditureApp')
                     description: null
                 };
             };
-
-            var resetForm = function (form) {
-
-            };
-
-            $scope.model = createExpenditureModel();
 
             $scope.expenditureTabs = [
                 { tabName: 'Records', tabId: 1, include: '/Areas/Finance/Templates/Expenditure/Records.html', loadedTab: true },
@@ -52,9 +46,11 @@ angular.module('expenditureApp')
                         accountId: $scope.model.account.KeyId,
                         expenditureDate: $scope.model.expenditureDate,
                         description: $scope.model.description,
-                        userId: $scope.user.keyId
+                        userId: $scope.user.keyId,
+                        cultureId: $rootScope.culture.KeyId
                     };
                     expenditureService.createNewExpenditureRecord(model).then(function (response) {
+                        $scope.accounts = response.data.AccountPresentations;
                         $scope.resetForm(form);
                     });
                 } else {
@@ -66,7 +62,7 @@ angular.module('expenditureApp')
                 if (form) {
                     form.$setPristine();
                     form.$setUntouched();
-                    $(".select2").select2("data", null);
+                    $(".select2").select2("val", "all");
                     $scope.model = createExpenditureModel();
                 }
             };

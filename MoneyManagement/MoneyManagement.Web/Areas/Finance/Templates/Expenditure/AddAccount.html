@@ -1,0 +1,57 @@
+﻿<div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
+                <div class="form-group" ng-form>
+                    <!--<label class="control-label mandatory-field-label">Amount</label>-->
+                    <div class="input-group">
+
+                        <input type="text"
+                               placeholder="Amount"
+                               class="form-control input-small hide-spinner text-right"
+                               display-decimals="0"
+                               decimal-input="0"
+                               ng-model="newAccount.amount"
+                               max="99999999999999999"
+                               min="1"
+                               ng-required="true" />
+
+                        <div class="input-group-addon"> VND </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-advantage ">
+        <div class="panel-heading">
+            <h3>Account detail</h3>
+        </div>
+
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
+                    <div class="form-group" ng-form>
+                        <div class="input-group">
+                            <input type="text" placeholder="Name" ng-model="newAccount.name" ng-required="true"
+                                   class="form-control input-small hide-spinner text-right"/>
+                            <div class="input-group-addon">N</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
+                    <div class="form-group" ng-form>
+                        <div class="input-group">
+                            <input type="text" placeholder="Short name" ng-model="newAccount.shortName" ng-required="true"
+                                   class="form-control input-small hide-spinner text-right"/>
+                            <div class="input-group-addon">S</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

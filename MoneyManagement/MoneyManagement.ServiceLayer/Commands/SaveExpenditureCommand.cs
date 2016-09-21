@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using MoneyManagement.DomainModel.Domain;
 using MoneyManagement.Persistance.Interfaces;
 using MoneyManagement.ServiceLayer.Interfaces;
+using System.Data.Entity;
+using System.Linq;
+using MoneyManagement.ServiceLayer.ClientPresentations;
 
 namespace MoneyManagement.ServiceLayer.Commands
 {
@@ -14,9 +18,10 @@ namespace MoneyManagement.ServiceLayer.Commands
         public Guid BudgetId { get; set; }
         public Guid AccountId { get; set; }
         public Guid UserId { get; set; }
+        public Guid CultureId { get; set; }
         public class Result
         {
-            public Boolean IsSuccess { get; set; }
+            public List<AccountPresentation> AccountPresentations { get; set; }
         }
     }
 
@@ -45,12 +50,29 @@ namespace MoneyManagement.ServiceLayer.Commands
                 UserId = command.UserId
             };
 
-            _db.Expenditures.Add(expenditure);
-            var result = await _db.SaveChangesAsync();
+            var accounts = await _db.Accounts.Where(x => x.UserId == command.UserId).ToListAsync();
 
+            var account = accounts.FirstOrDefault(x => x.KeyId == command.AccountId);
+
+            if (account?.Balance < command.Amount)
+            {
+                throw new Exception("Account doesn't have enough mooney for this expenditure");
+            }
+
+            if (account != null) account.Balance -= command.Amount;
+
+            _db.Expenditures.Add(expenditure);
+            await _db.SaveChangesAsync();
+
+            var result = accounts.Select(x => new AccountPresentation
+            {
+                KeyId = x.KeyId,
+                Balance = x.Balance,
+                DisplayName = x.Translations.Any() ? string.Format("[{0}] {1}", x.ShortName, x.Translations.FirstOrDefault(y => y.CultureId == command.CultureId)?.Name) : x.ShortName,
+            }).ToList();
             return new SaveExpenditureCommand.Result
             {
-                IsSuccess = result > 0
+                AccountPresentations = result
             };
         }
     }

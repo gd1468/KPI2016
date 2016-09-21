@@ -264,10 +264,13 @@
     <Compile Include="WebModule.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Finance\Scripts\Expenditure\controllers\expenditure-account-controller.js" />
     <Content Include="Areas\Finance\Scripts\Expenditure\controllers\expenditure-controller.js" />
+    <Content Include="Areas\Finance\Scripts\Expenditure\directives\expenditure-directives.js" />
     <Content Include="Areas\Finance\Scripts\Expenditure\expenditure-app.js" />
     <Content Include="Areas\Finance\Scripts\Expenditure\services\expenditure-services.js" />
     <Content Include="Areas\Finance\Templates\Expenditure\Accounts.html" />
+    <Content Include="Areas\Finance\Templates\Expenditure\AddAccount.html" />
     <Content Include="Areas\Finance\Templates\Expenditure\Budget.html" />
     <Content Include="Areas\Finance\Templates\Expenditure\Main.html" />
     <Content Include="Areas\Finance\Templates\Expenditure\Records.html" />
@@ -354,7 +357,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Finance\Models\" />
-    <Folder Include="Areas\Finance\Scripts\Expenditure\directives\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

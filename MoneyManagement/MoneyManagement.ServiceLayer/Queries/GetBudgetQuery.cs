@@ -12,6 +12,7 @@ namespace MoneyManagement.ServiceLayer.Queries
     public class GetBudgetQuery : IQuery<GetBudgetQuery.Result>
     {
         public Guid CultureId { get; set; }
+        public Guid UserId { get; set; }
         public class Result
         {
             public List<BudgetPresentation> BudgetPresentations { get; set; }
@@ -28,7 +29,7 @@ namespace MoneyManagement.ServiceLayer.Queries
         }
         public async Task<GetBudgetQuery.Result> Execute([FromUri]GetBudgetQuery query)
         {
-            var budgets = _db.Budgets.AsEnumerable().Select(x => new BudgetPresentation
+            var budgets = _db.Budgets.Where(x => x.UserId == query.UserId).AsEnumerable().Select(x => new BudgetPresentation
             {
                 KeyId = x.KeyId,
                 DisplayName = x.Translations.Any() ? string.Format("[{0}] {1}", x.ShortName, x.Translations.FirstOrDefault(y => y.CultureId == query.CultureId)?.Name) : x.ShortName

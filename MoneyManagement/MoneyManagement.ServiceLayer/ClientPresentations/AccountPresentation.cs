@@ -6,5 +6,6 @@ namespace MoneyManagement.ServiceLayer.ClientPresentations
     {
         public Guid KeyId { get; set; }
         public string DisplayName { get; set; }
+        public decimal Balance { get; set; }
     }
 }

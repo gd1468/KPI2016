@@ -1,5 +1,21 @@
 ﻿<div class="container">
     <form name="form" ng-submit="onSubmit(form)" novalidate>
+        <div class="row medium-aquamarine">
+            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 no-padding">
+                <button type="button" class="btn btn-default medium-aquamarine no-border">
+                    <i class="fa fa-history fa-lg margin-right-5"></i>
+                </button>
+            </div>
+            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 no-padding">
+                <input type="text" class="form-control" />
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 no-padding">
+                <input type="submit" class="form-control" value="Save" ng-disabled="form.$invalid || form.$isPristine" style="background: aquamarine" />
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 no-padding">
+                <input type="reset" class="form-control" ng-click="resetForm(form)" value="Discard" />
+            </div>
+        </div>
         <div class="panel-body">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
@@ -78,22 +94,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="row" style="background-color: mediumaquamarine">
-            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 no-padding">
-                <button type="button" class="btn btn-default" style="background-color: mediumaquamarine; border: none">
-                    <i class="fa fa-history fa-lg" style="margin-right: 5px"></i>
-                </button>
-            </div>
-            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 no-padding">
-                <input type="text" class="form-control" />
-            </div>
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 no-padding">
-                <input type="submit" class="form-control" value="Save" ng-disabled="form.$invalid || form.$isPristine" style="background: aquamarine" />
-            </div>
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 no-padding">
-                <input type="reset" class="form-control" ng-click="resetForm(form)" value="Discard" />
             </div>
         </div>
     </form>

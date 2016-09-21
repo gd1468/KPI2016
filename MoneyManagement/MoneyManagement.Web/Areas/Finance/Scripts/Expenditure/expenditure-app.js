@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-angular.module('expenditureApp', ['ngRoute', 'mmHomeApp', 'expenditureServices'])
+angular.module('expenditureApp', ['ngRoute', 'mmHomeApp', 'expenditureServices', 'expenditureDirectives'])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/', {
             templateUrl: '/Areas/Finance/Templates/Expenditure/Main.html',

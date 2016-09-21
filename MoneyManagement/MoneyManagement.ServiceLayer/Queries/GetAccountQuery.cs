@@ -12,6 +12,7 @@ namespace MoneyManagement.ServiceLayer.Queries
     public class GetAccountQuery : IQuery<GetAccountQuery.Result>
     {
         public Guid CultureId { get; set; }
+        public Guid UserId { get; set; }
         public class Result
         {
             public List<AccountPresentation> AccountPresentations { get; set; }
@@ -28,10 +29,11 @@ namespace MoneyManagement.ServiceLayer.Queries
         }
         public async Task<GetAccountQuery.Result> Execute(GetAccountQuery query)
         {
-            var accounts = _db.Accounts.AsEnumerable().Select(x => new AccountPresentation
+            var accounts = _db.Accounts.Where(x => x.UserId == query.UserId).AsEnumerable().Select(x => new AccountPresentation
             {
                 KeyId = x.KeyId,
-                DisplayName = x.Translations.Any() ? string.Format("[{0}] {1}", x.ShortName, x.Translations.FirstOrDefault(y => y.CultureId == query.CultureId)?.Name) : x.ShortName
+                DisplayName = x.Translations.Any() ? string.Format("[{0}] {1}", x.ShortName, x.Translations.FirstOrDefault(y => y.CultureId == query.CultureId)?.Name) : x.ShortName,
+                Balance = x.Balance
             }).ToList();
             return await Task.FromResult(new GetAccountQuery.Result()
             {
