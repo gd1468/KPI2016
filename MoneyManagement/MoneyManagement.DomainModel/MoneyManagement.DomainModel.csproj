@@ -128,8 +128,8 @@
     <Compile Include="Domain\Budget.cs" />
     <Compile Include="Domain\BudgetTranslation.cs" />
     <Compile Include="Domain\Expenditure.cs" />
+    <Compile Include="Domain\ExpenditureIncome.cs" />
     <Compile Include="Domain\Resource.cs" />
-    <Compile Include="Domain\SavingDepositAccount.cs" />
     <Compile Include="Domain\StringResource.cs" />
     <Compile Include="Domain\User.cs" />
     <Compile Include="Interfaces\IEntity.cs" />

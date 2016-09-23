@@ -265,12 +265,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Finance\Scripts\Expenditure\controllers\expenditure-account-controller.js" />
+    <Content Include="Areas\Finance\Scripts\Expenditure\controllers\expenditure-budget-controller.js" />
     <Content Include="Areas\Finance\Scripts\Expenditure\controllers\expenditure-controller.js" />
     <Content Include="Areas\Finance\Scripts\Expenditure\directives\expenditure-directives.js" />
     <Content Include="Areas\Finance\Scripts\Expenditure\expenditure-app.js" />
     <Content Include="Areas\Finance\Scripts\Expenditure\services\expenditure-services.js" />
     <Content Include="Areas\Finance\Templates\Expenditure\Accounts.html" />
     <Content Include="Areas\Finance\Templates\Expenditure\AddAccount.html" />
+    <Content Include="Areas\Finance\Templates\Expenditure\AddBudget.html" />
     <Content Include="Areas\Finance\Templates\Expenditure\Budget.html" />
     <Content Include="Areas\Finance\Templates\Expenditure\Main.html" />
     <Content Include="Areas\Finance\Templates\Expenditure\Records.html" />
@@ -304,6 +306,7 @@
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Scripts\angular\angular-app.js" />
     <Content Include="Scripts\angular\directives\angular-directives.js" />
+    <Content Include="Scripts\angular\filters\angular-filters.js" />
     <Content Include="Scripts\angular\services\angular-services.js" />
     <Content Include="Scripts\angular\templates\mmLoginForm.html" />
     <Content Include="Scripts\angular\templates\mmPageHeader.html" />

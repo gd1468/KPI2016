@@ -7,8 +7,13 @@
                 return expenditureApi;
             };
 
+            var depositExistingAccount = function (model) {
+                var expenditureApi = $http.put(url, model);
+                return expenditureApi;
+            };
             return {
-                createNewExpenditureRecord: createNewExpenditureRecord
+                createNewExpenditureRecord: createNewExpenditureRecord,
+                depositExistingAccount: depositExistingAccount
             };
         }])
         .service('accountService', ['$resource', function ($resource) {
@@ -31,6 +36,10 @@
             this.createNewAccount = function (model) {
                 return accountApi.save(model).$promise;
             };
+
+            this.deleteAccount = function (accountIds) {
+                return accountApi.remove({ accountIds: accountIds }).$promise;
+            };
         }])
         .factory('budgetService', ['$resource', function ($resource) {
             var budgetApi = $resource('/api/BudgetApi/', {
@@ -42,11 +51,20 @@
             var getBudgetById = function (id) {
                 return budgetApi.get({ id: id });
             }
+            var createNewBudget = function (model) {
+                return budgetApi.save(model).$promise;
+            };
+
+            var deleteBudget = function (budgetIds) {
+                return budgetApi.remove({ budgetIds: budgetIds }).$promise;
+            };
             return {
                 budgets: function (cultureId, user) {
                     return budgetApi.get({ cultureId: cultureId, userId: user }).$promise;
                 },
-                getBudgetById: getBudgetById
+                getBudgetById: getBudgetById,
+                createNewBudget: createNewBudget,
+                deleteBudget: deleteBudget
             }
         }])
         .factory('cultureService', ['$resource', function ($resource) {

@@ -22,6 +22,7 @@ namespace MoneyManagement.ServiceLayer.Commands
         public class Result
         {
             public List<AccountPresentation> AccountPresentations { get; set; }
+            public List<BudgetPresentation> BudgetPresentations { get; set; }
         }
     }
 
@@ -61,18 +62,46 @@ namespace MoneyManagement.ServiceLayer.Commands
 
             if (account != null) account.Balance -= command.Amount;
 
+            var budgets = await _db.Budgets.Where(x => x.UserId == command.UserId).ToListAsync();
+
+            var budget = budgets.FirstOrDefault(x => x.KeyId == command.BudgetId);
+
+            if (budget?.Balance < command.Amount)
+            {
+                throw new Exception("Budget doesn't have enough mooney for this expenditure");
+            }
+
+            if (budget != null)
+            {
+                budget.Balance -= command.Amount;
+                budget.Expensed += command.Amount;
+            }
+
             _db.Expenditures.Add(expenditure);
             await _db.SaveChangesAsync();
 
-            var result = accounts.Select(x => new AccountPresentation
+            var listAccount = accounts.Select(x => new AccountPresentation
             {
                 KeyId = x.KeyId,
                 Balance = x.Balance,
                 DisplayName = x.Translations.Any() ? string.Format("[{0}] {1}", x.ShortName, x.Translations.FirstOrDefault(y => y.CultureId == command.CultureId)?.Name) : x.ShortName,
             }).ToList();
+
+            var listBudget = budgets.Select(x => new BudgetPresentation
+            {
+                KeyId = x.KeyId,
+                Balance = x.Balance,
+                DisplayName = x.Translations.Any() ? string.Format("[{0}] {1}", x.ShortName, x.Translations.FirstOrDefault(y => y.CultureId == command.CultureId)?.Name) : x.ShortName,
+                Total = x.Total,
+                Expensed = x.Expensed,
+                EndDate = x.EffectiveTo,
+                StartDate = x.EffectiveFrom
+            }).ToList();
+
             return new SaveExpenditureCommand.Result
             {
-                AccountPresentations = result
+                AccountPresentations = listAccount,
+                BudgetPresentations = listBudget
             };
         }
     }

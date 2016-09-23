@@ -123,7 +123,11 @@
     <Compile Include="ClientPresentations\BudgetPresentation.cs" />
     <Compile Include="ClientPresentations\CulturePresentation.cs" />
     <Compile Include="ClientPresentations\UserPresentation.cs" />
+    <Compile Include="Commands\DepositToExistingAccountCommand.cs" />
+    <Compile Include="Commands\RemoveAccountCommand.cs" />
+    <Compile Include="Commands\RemoveBudgetCommand.cs" />
     <Compile Include="Commands\SaveAccountCommand.cs" />
+    <Compile Include="Commands\SaveBudgetCommand.cs" />
     <Compile Include="Commands\SaveExpenditureCommand.cs" />
     <Compile Include="CQRS\CommandDispatcher.cs" />
     <Compile Include="CQRS\QueryDispatcher.cs" />

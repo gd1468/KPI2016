@@ -7,7 +7,12 @@
                 </button>
             </div>
             <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 no-padding">
-                <input type="text" class="form-control" />
+                <select class="form-control select2-no-clear text-center"
+                        ng-options="expenditureType.DisplayName for expenditureType in expenditureTypes"
+                        ng-model="selectedExpenditureType.type"
+                        ng-required="true">
+                    <option style="display: none"></option>
+                </select>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 no-padding">
                 <input type="submit" class="form-control" value="Save" ng-disabled="form.$invalid || form.$isPristine" style="background: aquamarine" />
@@ -16,6 +21,7 @@
                 <input type="reset" class="form-control" ng-click="resetForm(form)" value="Discard" />
             </div>
         </div>
+
         <div class="panel-body">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
@@ -53,10 +59,14 @@
                             <!--<label class="control-label mandatory-field-label">Category</label>-->
                             <div class="input-group">
                                 <select class="form-control select2 text-right"
+                                        id="budgetOption"
                                         ng-options="budget.DisplayName for budget in budgets"
                                         ng-model="model.budget"
-                                        data-placeholder="Select a budget"
-                                        ng-required="true"></select>
+                                        placeholder="Select a budget"
+                                        ng-required="selectedExpenditureType.type==expenditureTypes[0]"
+                                        ng-disabled="selectedExpenditureType.type!==expenditureTypes[0]">
+                                    <option style="display: none"></option>
+                                </select>
                                 <div class="input-group-addon"> B </div>
                             </div>
                         </div>
@@ -76,10 +86,13 @@
                         <div class="form-group" ng-form>
                             <div class="input-group">
                                 <select class="form-control select2 text-right"
+                                        id="accountOption"
                                         ng-options="account.DisplayName for account in accounts"
                                         ng-model="model.account"
-                                        data-placeholder="Select an account"
-                                        ng-required="true"></select>
+                                        placeholder="Select an account"
+                                        ng-required="true">
+                                    <option style="display: none"></option>
+                                </select>
                                 <div class="input-group-addon"> A </div>
                             </div>
                         </div>

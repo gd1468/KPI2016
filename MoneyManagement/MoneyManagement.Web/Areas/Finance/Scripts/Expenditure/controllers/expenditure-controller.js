@@ -18,6 +18,14 @@ angular.module('expenditureApp')
                 });
             });
 
+            $scope.expenditureTypes = [
+                { DisplayName: "Expense", isIncome: false },
+                { DisplayName: "Income", isIncome: true }
+            ];
+
+            $scope.selectedExpenditureType = {};
+            $scope.selectedExpenditureType.type = $scope.expenditureTypes[0];
+
             var createExpenditureModel = function () {
                 return {
                     amount: null,
@@ -27,6 +35,8 @@ angular.module('expenditureApp')
                     description: null
                 };
             };
+
+            $scope.model = createExpenditureModel;
 
             $scope.expenditureTabs = [
                 { tabName: 'Records', tabId: 1, include: '/Areas/Finance/Templates/Expenditure/Records.html', loadedTab: true },
@@ -42,17 +52,26 @@ angular.module('expenditureApp')
                 if (form && form.$valid) {
                     var model = {
                         amount: $scope.model.amount,
-                        budgetId: $scope.model.budget.KeyId,
                         accountId: $scope.model.account.KeyId,
                         expenditureDate: $scope.model.expenditureDate,
                         description: $scope.model.description,
                         userId: $scope.user.keyId,
                         cultureId: $rootScope.culture.KeyId
                     };
-                    expenditureService.createNewExpenditureRecord(model).then(function (response) {
-                        $scope.accounts = response.data.AccountPresentations;
-                        $scope.resetForm(form);
-                    });
+                    if ($scope.selectedExpenditureType.type === $scope.expenditureTypes[0]) {
+                        model.budgetId = $scope.model.budget.KeyId;
+                        expenditureService.createNewExpenditureRecord(model).then(function (response) {
+                            $scope.accounts = response.data.AccountPresentations;
+                            $scope.budgets = response.data.BudgetPresentations;
+                            $scope.resetForm(form);
+                        });
+                    } else {
+                        expenditureService.depositExistingAccount(model).success(function (data) {
+                            $scope.accounts = data.AccountPresentations;
+                            $scope.resetForm(form);
+                        });
+                    }
+
                 } else {
                     window.alert("invalid");
                 }
@@ -62,8 +81,24 @@ angular.module('expenditureApp')
                 if (form) {
                     form.$setPristine();
                     form.$setUntouched();
-                    $(".select2").select2("val", "all");
+                    $(".select2").select2("data", null);
                     $scope.model = createExpenditureModel();
                 }
             };
+
+            $scope.$on('update-accounts', function (event, data) {
+                $scope.accounts = data;
+                if ($scope.model) {
+                    $scope.model.account = null;
+                }
+                $("#accountOption").select2("data", null);
+            });
+
+            $scope.$on('update-budgets', function (event, data) {
+                $scope.budgets = data;
+                if ($scope.model) {
+                    $scope.model.budget = null;
+                }
+                $("#budgetOption").select2("data", null);
+            });
         }]);

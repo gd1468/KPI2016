@@ -6,28 +6,34 @@
                     <i class="fa fa-plus fa-lg margin-right-5"></i>
                 </button>
             </div>
-            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 no-padding" ng-if="!isAdding">
-                <button type="button" class="btn btn-default medium-aquamarine no-border">
+
+            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 no-padding" ng-if="!isAdding && !isDisabledDelete()">
+                <button type="button" class="btn btn-default medium-aquamarine no-border" ng-click="deleteAccount()">
                     <i class="fa fa-trash fa-lg margin-right-5"></i>
                 </button>
             </div>
+
             <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 no-padding" ng-if="isAdding">
                 <button type="button" class="btn btn-default medium-aquamarine no-border" ng-click="cancelAddAccount()">
                     <i class="fa fa-close fa-lg margin-right-5"></i>
                 </button>
             </div>
 
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 no-padding" ng-if="!isAdding">
-                <input type="text" class="form-control" ng-model="filter" ng-disabled="isAdding" />
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 no-padding" >
+                <input type="submit" class="form-control" value="Save" ng-disabled="accountForm.$invalid || accountForm.$isPristine" style="background: aquamarine" ng-if="isAdding" />
             </div>
 
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 no-padding" ng-if="isAdding">
-                <input type="submit" class="form-control" value="Save" ng-disabled="accountForm.$invalid || accountForm.$isPristine" style="background: aquamarine" />
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 no-padding" >
+                <input type="reset" class="form-control" ng-click="resetForm(accountForm)" value="Discard" ng-if="isAdding"/>
             </div>
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 no-padding" ng-if="isAdding">
-                <input type="reset" class="form-control" ng-click="resetForm(form)" value="Discard" />
+
+            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 no-padding" ng-if="!(!isAdding && !isDisabledDelete())"></div>
+
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 no-padding" ng-if="!isAdding">
+                <input type="text" class="form-control text-right" ng-model="filter.displayName" ng-disabled="isAdding" placeholder="Filter"/>
             </div>
         </div>
+
         <div class="row" ng-show="!isAdding">
             <table class="table table-hover">
                 <tr>
@@ -36,8 +42,8 @@
                     <th class="text-center vertical-align-middle">Name</th>
                     <th class="text-center vertical-align-middle">Balance</th>
                 </tr>
-                <tr ng-repeat="account in accounts | filter:filter" class="text-center" ng-class-even="'active'">
-                    <td><input type="checkbox" ng-model="account.selected" /></td>
+                <tr ng-repeat="account in accounts | filter:lookupFilter(filter.displayName)" class="text-center" ng-class-even="'active'">
+                    <td><input type="checkbox" ng-model="account.selected" ng-change="isDisabledDelete()" /></td>
                     <td class="vertical-align-middle">{{$index+1}}</td>
                     <td class="vertical-align-middle">{{account.DisplayName}}</td>
                     <td class="vertical-align-middle">{{account.Balance}}</td>
@@ -47,4 +53,5 @@
 
         <div class="row container" ng-show="isAdding" add-account model="accounts" function="addAccount()"></div>
     </form>
+
 </div>

@@ -7,7 +7,7 @@ namespace MoneyManagement.Persistance.Configurations
     {
         public ExpenditureConfiguration()
         {
-            HasRequired(x => x.Budget).WithMany(x => x.Expenditures).HasForeignKey(x => x.BudgetId).WillCascadeOnDelete(false);
+            HasOptional(x => x.Budget).WithMany(x => x.Expenditures).HasForeignKey(x => x.BudgetId);
             HasRequired(x => x.Account).WithMany(x => x.Expenditures).HasForeignKey(x => x.AccountId).WillCascadeOnDelete(false);
             HasRequired(x => x.User).WithMany(x => x.Expenditures).HasForeignKey(x => x.UserId).WillCascadeOnDelete(false);
             Property(x => x.Amount).IsRequired();

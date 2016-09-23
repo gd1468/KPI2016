@@ -37,5 +37,10 @@ namespace MoneyManagement.Web.Controllers.Finance
         {
             return await _commandDispatcher.Execute<SaveAccountCommand, SaveAccountCommand.Result>(command);
         }
+
+        public async Task<RemoveAccountCommand.Result> Delete([FromUri]RemoveAccountCommand command)
+        {
+            return await _commandDispatcher.Execute<RemoveAccountCommand, RemoveAccountCommand.Result>(command);
+        }
     }
 }

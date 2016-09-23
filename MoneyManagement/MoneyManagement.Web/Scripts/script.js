@@ -5,5 +5,9 @@
         $('.select2').select2({
 
         });
+
+        $('.select2-no-clear').select2({
+
+        });
     }); //script
 });

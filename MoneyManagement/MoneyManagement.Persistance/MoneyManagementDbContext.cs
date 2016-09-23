@@ -52,7 +52,6 @@ namespace MoneyManagement.Persistance
             modelBuilder.Configurations.Add(new BudgetConfiguration());
             modelBuilder.Configurations.Add(new ExpenditureConfiguration());
             modelBuilder.Configurations.Add(new ResourceConfiguration());
-            modelBuilder.Configurations.Add(new SavingDepositAccountConfiguration());
             modelBuilder.Configurations.Add(new StringResourceConfiguration());
             modelBuilder.Configurations.Add(new UserConfiguration());
         }

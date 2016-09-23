@@ -19,5 +19,10 @@ namespace MoneyManagement.Web.Controllers.Finance
         {
             return await _commandDispatcher.Execute<SaveExpenditureCommand, SaveExpenditureCommand.Result>(command);
         }
+
+        public async Task<DepositToExistingAccountCommand.Result> Put(DepositToExistingAccountCommand command)
+        {
+            return await _commandDispatcher.Execute<DepositToExistingAccountCommand, DepositToExistingAccountCommand.Result>(command);
+        }
     }
 }

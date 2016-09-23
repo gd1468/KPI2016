@@ -118,7 +118,6 @@
     <Compile Include="Configurations\BudgetConfiguration.cs" />
     <Compile Include="Configurations\ExpenditureConfiguration.cs" />
     <Compile Include="Configurations\ResourceConfiguration.cs" />
-    <Compile Include="Configurations\SavingDepositAccountConfiguration.cs" />
     <Compile Include="Configurations\StringResourceConfiguration.cs" />
     <Compile Include="Configurations\UserConfiguration.cs" />
     <Compile Include="Interfaces\IDbContext.cs" />
@@ -138,6 +137,18 @@
     <Compile Include="Migrations\201609201305395_cascade.cs" />
     <Compile Include="Migrations\201609201305395_cascade.Designer.cs">
       <DependentUpon>201609201305395_cascade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609230322377_RemoveDepositAccount.cs" />
+    <Compile Include="Migrations\201609230322377_RemoveDepositAccount.Designer.cs">
+      <DependentUpon>201609230322377_RemoveDepositAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609230324426_cascade1.cs" />
+    <Compile Include="Migrations\201609230324426_cascade1.Designer.cs">
+      <DependentUpon>201609230324426_cascade1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609230358367_setBudgetNullable.cs" />
+    <Compile Include="Migrations\201609230358367_setBudgetNullable.Designer.cs">
+      <DependentUpon>201609230358367_setBudgetNullable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MoneyManagementDbContext.cs" />
@@ -165,6 +176,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609201305395_cascade.resx">
       <DependentUpon>201609201305395_cascade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609230322377_RemoveDepositAccount.resx">
+      <DependentUpon>201609230322377_RemoveDepositAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609230324426_cascade1.resx">
+      <DependentUpon>201609230324426_cascade1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609230358367_setBudgetNullable.resx">
+      <DependentUpon>201609230358367_setBudgetNullable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
