@@ -1,113 +1,117 @@
 ﻿<div class="container">
-    <form name="form" ng-submit="onSubmit(form)" novalidate>
-        <div class="row medium-aquamarine">
-            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 no-padding">
-                <button type="button" class="btn btn-default medium-aquamarine no-border">
-                    <i class="fa fa-history fa-lg margin-right-5"></i>
-                </button>
-            </div>
-            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 no-padding">
-                <select class="form-control select2-no-clear text-center"
-                        ng-options="expenditureType.DisplayName for expenditureType in expenditureTypes"
-                        ng-model="selectedExpenditureType.type"
-                        ng-required="true">
-                    <option style="display: none"></option>
-                </select>
-            </div>
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 no-padding">
-                <input type="submit" class="form-control" value="Save" ng-disabled="form.$invalid || form.$isPristine" style="background: aquamarine" />
-            </div>
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 no-padding">
-                <input type="reset" class="form-control" ng-click="resetForm(form)" value="Discard" />
-            </div>
-        </div>
+    <div ng-show="!isShowHistory">
+        <form name="form" ng-submit="onSubmit(form)" novalidate>
 
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
-                    <div class="form-group" ng-form>
-                        <!--<label class="control-label mandatory-field-label">Amount</label>-->
-                        <div class="input-group">
-
-                            <input type="text"
-                                   placeholder="Amount"
-                                   class="form-control input-small hide-spinner text-right"
-                                   display-decimals="0"
-                                   decimal-input="0"
-                                   ng-model="model.amount"
-                                   max="99999999999999999"
-                                   min="1"
-                                   ng-required="true" />
-
-                            <div class="input-group-addon"> VND </div>
-                        </div>
-                    </div>
+            <div class="row medium-aquamarine">
+                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 no-padding">
+                    <button type="button" class="btn btn-default medium-aquamarine no-border" ng-click="turnOffHistory()">
+                        <i class="fa fa-history fa-lg margin-right-5"></i>
+                    </button>
                 </div>
-            </div>
-        </div>
-
-
-        <div class="panel panel-advantage">
-            <div class="panel-heading">
-                <h3>Expenditure detail</h3>
+                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 no-padding">
+                    <select class="form-control select2-no-clear text-center"
+                            ng-options="expenditureType.DisplayName for expenditureType in expenditureTypes"
+                            ng-model="selectedExpenditureType.type"
+                            ng-required="true">
+                        <option style="display: none"></option>
+                    </select>
+                </div>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 no-padding">
+                    <input type="submit" class="form-control" value="Save" ng-disabled="form.$invalid || form.$isPristine" style="background: aquamarine" />
+                </div>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 no-padding">
+                    <input type="reset" class="form-control" ng-click="resetForm(form)" value="Discard" />
+                </div>
             </div>
 
             <div class="panel-body">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
                         <div class="form-group" ng-form>
-                            <!--<label class="control-label mandatory-field-label">Category</label>-->
+                            <!--<label class="control-label mandatory-field-label">Amount</label>-->
                             <div class="input-group">
-                                <select class="form-control select2 text-right"
-                                        id="budgetOption"
-                                        ng-options="budget.DisplayName for budget in budgets"
-                                        ng-model="model.budget"
-                                        placeholder="Select a budget"
-                                        ng-required="selectedExpenditureType.type==expenditureTypes[0]"
-                                        ng-disabled="selectedExpenditureType.type!==expenditureTypes[0]">
-                                    <option style="display: none"></option>
-                                </select>
-                                <div class="input-group-addon"> B </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
-                        <div class="form-group" ng-form>
-                            <div class="input-group">
-                                <input type="text" placeholder="Description" ng-model="model.description"
-                                       class="form-control input-small hide-spinner text-right" />
-                                <div class="input-group-addon"> D </div>
-                            </div>
-                        </div>
-                    </div>
+                                <input type="text"
+                                       placeholder="Amount"
+                                       class="form-control input-small hide-spinner text-right"
+                                       display-decimals="0"
+                                       decimal-input="0"
+                                       ng-model="model.amount"
+                                       max="99999999999999999"
+                                       min="1"
+                                       ng-required="true" />
 
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
-                        <div class="form-group" ng-form>
-                            <div class="input-group">
-                                <select class="form-control select2 text-right"
-                                        id="accountOption"
-                                        ng-options="account.DisplayName for account in accounts"
-                                        ng-model="model.account"
-                                        placeholder="Select an account"
-                                        ng-required="true">
-                                    <option style="display: none"></option>
-                                </select>
-                                <div class="input-group-addon"> A </div>
+                                <div class="input-group-addon"> VND </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
-                        <div class="form-group" ng-form>
-                            <input type="text" class="form-control" date-picker
-                                   ng-model="model.expenditureDate"
-                                   ng-required="true"
-                                   model-name="expenditureDate" />
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </form>
+
+
+            <div class="panel panel-advantage">
+                <div class="panel-heading">
+                    <h3>Expenditure detail</h3>
+                </div>
+
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
+                            <div class="form-group" ng-form>
+                                <!--<label class="control-label mandatory-field-label">Category</label>-->
+                                <div class="input-group">
+                                    <select class="form-control select2 text-right"
+                                            id="budgetOption"
+                                            ng-options="budget.DisplayName for budget in budgets"
+                                            ng-model="model.budget"
+                                            placeholder="Select a budget"
+                                            ng-required="selectedExpenditureType.type==expenditureTypes[0]"
+                                            ng-disabled="selectedExpenditureType.type!==expenditureTypes[0]">
+                                        <option style="display: none"></option>
+                                    </select>
+                                    <div class="input-group-addon"> B </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
+                            <div class="form-group" ng-form>
+                                <div class="input-group">
+                                    <input type="text" placeholder="Description" ng-model="model.description"
+                                           class="form-control input-small hide-spinner text-right" />
+                                    <div class="input-group-addon"> D </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
+                            <div class="form-group" ng-form>
+                                <div class="input-group">
+                                    <select class="form-control select2 text-right"
+                                            id="accountOption"
+                                            ng-options="account.DisplayName for account in accounts"
+                                            ng-model="model.account"
+                                            placeholder="Select an account"
+                                            ng-required="true">
+                                        <option style="display: none"></option>
+                                    </select>
+                                    <div class="input-group-addon"> A </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
+                            <div class="form-group" ng-form>
+                                <input type="text" class="form-control" date-picker
+                                       ng-model="model.expenditureDate"
+                                       ng-required="true"
+                                       model-name="expenditureDate" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div ng-if="isShowHistory" expenditure-history accounts="accounts" budgets="budgets" expenditures="expenditures" culture-id="{{culture.KeyId}}" user-id="{{user.keyId}}" turn-off-history="turnOffHistory()"> </div>
 </div>

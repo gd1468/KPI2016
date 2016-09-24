@@ -1,0 +1,51 @@
+﻿<div>
+    <form>
+        <div class="row medium-aquamarine">
+            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 no-padding">
+                <button type="button" class="btn btn-default medium-aquamarine no-border" ng-click="turnOffHistory()">
+                    <i class="fa fa-close fa-lg margin-right-5"></i>
+                </button>
+            </div>
+
+            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 no-padding" ng-show="!isDisabledDelete()">
+                <button type="button" class="btn btn-default medium-aquamarine no-border" ng-click="deleteAccount()">
+                    <i class="fa fa-trash fa-lg margin-right-5"></i>
+                </button>
+            </div>
+
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 no-padding" ng-show="!isDisabledDelete()"></div>
+            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 no-padding" ng-show="isDisabledDelete()"></div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 no-padding">
+                <input type="text" class="form-control text-right" ng-model="filter.displayName" ng-disabled="isAdding" placeholder="Filter" />
+            </div>
+        </div>
+
+        <div class="row" ng-show="!isAdding">
+            <table class="table table-hover">
+                <tr>
+                    <th class="text-center"><input type="checkbox" ng-click="toggleAll()" /></th>
+                    <th class="text-center vertical-align-middle">#</th>
+                    <th class="text-center vertical-align-middle">Amount</th>
+                    <th class="text-center vertical-align-middle">Budget</th>
+                    <th class="text-center vertical-align-middle">Account</th>
+                    <th class="text-center vertical-align-middle">Account</th>
+                    <th class="text-center vertical-align-middle">Description</th>
+                    <th class="text-center vertical-align-middle">Type</th>
+                </tr>
+                <tr ng-repeat="expenditure in expenditures | filter:lookupFilter(filter.displayName)" class="text-center" ng-class-even="'active'">
+                    <td><input type="checkbox" ng-model="expenditure.selected" ng-change="isDisabledDelete()" /></td>
+                    <td class="vertical-align-middle">{{$index+1}}</td>
+                    <td class="vertical-align-middle">{{expenditure.Amount}}</td>
+                    <td class="vertical-align-middle">{{expenditure.Budget.DisplayName}}</td>
+                    <td class="vertical-align-middle">{{expenditure.Account.DisplayName}}</td>
+                    <td class="vertical-align-middle">{{expenditure.Account.DisplayName}}</td>
+                    <td class="vertical-align-middle">{{expenditure.Description}}</td>
+                    <td class="vertical-align-middle">{{expenditure.Budget?"Expense":"Income"}}</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="row container" ng-show="isAdding" add-account model="accounts" function="addAccount()"></div>
+    </form>
+
+</div>

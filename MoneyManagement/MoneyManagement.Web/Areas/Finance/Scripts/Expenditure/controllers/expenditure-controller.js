@@ -5,17 +5,17 @@ angular.module('expenditureApp')
         '$scope',
         'expenditureService',
         'accountService',
-        'budgetService',
-        '$rootScope',
-        '$timeout', function ($scope, expenditureService, accountService, budgetService, $rootScope, $timeout) {
-            $timeout(function () {
-                accountService.accounts($rootScope.culture.KeyId, $scope.user.keyId).then(function (response) {
-                    $scope.accounts = response.AccountPresentations;
-                });
+        'budgetService', function ($scope, expenditureService, accountService, budgetService) {
+            accountService.accounts($scope.culture.KeyId, $scope.user.keyId).then(function (response) {
+                $scope.accounts = response.AccountPresentations;
+            });
 
-                budgetService.budgets($rootScope.culture.KeyId, $scope.user.keyId).then(function (response) {
-                    $scope.budgets = response.BudgetPresentations;
-                });
+            budgetService.budgets($scope.culture.KeyId, $scope.user.keyId).then(function (response) {
+                $scope.budgets = response.BudgetPresentations;
+            });
+
+            expenditureService.expenditures($scope.culture.KeyId, $scope.user.keyId).then(function (response) {
+                $scope.expenditures = response.data.ExpenditurePresentations;
             });
 
             $scope.expenditureTypes = [
@@ -101,4 +101,8 @@ angular.module('expenditureApp')
                 }
                 $("#budgetOption").select2("data", null);
             });
+
+            $scope.turnOffHistory = function () {
+                $scope.isShowHistory = !$scope.isShowHistory;
+            }
         }]);

@@ -274,6 +274,7 @@
     <Content Include="Areas\Finance\Templates\Expenditure\AddAccount.html" />
     <Content Include="Areas\Finance\Templates\Expenditure\AddBudget.html" />
     <Content Include="Areas\Finance\Templates\Expenditure\Budget.html" />
+    <Content Include="Areas\Finance\Templates\Expenditure\ExpenditureHistory.html" />
     <Content Include="Areas\Finance\Templates\Expenditure\Main.html" />
     <Content Include="Areas\Finance\Templates\Expenditure\Records.html" />
     <Content Include="Content\css\bootstrap-datepicker.css" />

@@ -11,9 +11,14 @@
                 var expenditureApi = $http.put(url, model);
                 return expenditureApi;
             };
+
+            var expenditures = function (cultureId, userId) {
+                return $http.get(url, { params: { cultureId: cultureId, userId: userId } });
+            }
             return {
                 createNewExpenditureRecord: createNewExpenditureRecord,
-                depositExistingAccount: depositExistingAccount
+                depositExistingAccount: depositExistingAccount,
+                expenditures: expenditures
             };
         }])
         .service('accountService', ['$resource', function ($resource) {

@@ -10,9 +10,12 @@ namespace MoneyManagement.Web.Controllers.Finance
     public class ExpenditureApiController : ApiController
     {
         private readonly ICommandDispatcher _commandDispatcher;
-        public ExpenditureApiController(ICommandDispatcher commandDispatcher)
+        private readonly IQueryDispatcher _queryDispatcher;
+
+        public ExpenditureApiController(ICommandDispatcher commandDispatcher, IQueryDispatcher queryDispatcher)
         {
             _commandDispatcher = commandDispatcher;
+            _queryDispatcher = queryDispatcher;
         }
 
         public async Task<SaveExpenditureCommand.Result> Post(SaveExpenditureCommand command)
@@ -23,6 +26,11 @@ namespace MoneyManagement.Web.Controllers.Finance
         public async Task<DepositToExistingAccountCommand.Result> Put(DepositToExistingAccountCommand command)
         {
             return await _commandDispatcher.Execute<DepositToExistingAccountCommand, DepositToExistingAccountCommand.Result>(command);
+        }
+
+        public async Task<GetExpenditureQuery.Result> Get([FromUri]GetExpenditureQuery query)
+        {
+            return await _queryDispatcher.Execute<GetExpenditureQuery, GetExpenditureQuery.Result>(query);
         }
     }
 }

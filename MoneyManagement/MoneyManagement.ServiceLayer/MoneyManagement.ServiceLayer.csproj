@@ -122,6 +122,8 @@
     <Compile Include="ClientPresentations\AccountPresentation.cs" />
     <Compile Include="ClientPresentations\BudgetPresentation.cs" />
     <Compile Include="ClientPresentations\CulturePresentation.cs" />
+    <Compile Include="ClientPresentations\ExpenditurePresentation.cs" />
+    <Compile Include="ClientPresentations\ObjectReference.cs" />
     <Compile Include="ClientPresentations\UserPresentation.cs" />
     <Compile Include="Commands\DepositToExistingAccountCommand.cs" />
     <Compile Include="Commands\RemoveAccountCommand.cs" />
@@ -139,6 +141,7 @@
     <Compile Include="Queries\GetBudgetByIdQuery.cs" />
     <Compile Include="Queries\GetBudgetQuery.cs" />
     <Compile Include="Queries\GetCultureQuery.cs" />
+    <Compile Include="Queries\GetExpenditureQuery.cs" />
     <Compile Include="Queries\GetUserQuery.cs" />
   </ItemGroup>
   <ItemGroup>
