@@ -1,0 +1,85 @@
+﻿<div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
+                <div class="form-group" ng-form>
+                    <!--<label class="control-label mandatory-field-label">Amount</label>-->
+                    <div class="input-group">
+
+                        <input type="text"
+                               placeholder="Amount"
+                               class="form-control input-small hide-spinner text-right"
+                               display-decimals="0"
+                               decimal-input="0"
+                               ng-model="selectedExpenditure.Amount"
+                               max="99999999999999999"
+                               min="1"
+                               ng-required="true" />
+
+                        <div class="input-group-addon"> VND </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="panel panel-advantage">
+        <div class="panel-heading">
+            <h3>Edit expenditure</h3>
+        </div>
+
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
+                    <div class="form-group" ng-form>
+                        <!--<label class="control-label mandatory-field-label">Category</label>-->
+                        <div class="input-group">
+                            <select class="form-control select2 text-right"
+                                    ng-options="budget.DisplayName for budget in budgets"
+                                    id="selectedBudget"
+                                    ng-model="selectedExpenditure.Budget"
+                                    placeholder="Select a budget"
+                                    ng-required="!selectedExpenditure.IsIncome"
+                                    ng-disabled="selectedExpenditure.IsIncome"></select>
+                            <div class="input-group-addon"> B </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
+                    <div class="form-group" ng-form>
+                        <div class="input-group">
+                            <input type="text" placeholder="Description" ng-model="selectedExpenditure.Description"
+                                   class="form-control input-small hide-spinner text-right" />
+                            <div class="input-group-addon"> D </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
+                    <div class="form-group" ng-form>
+                        <div class="input-group">
+                            <select class="form-control select2 text-right"
+                                    ng-options="account.DisplayName for account in accounts"
+                                    id="selectedAccount"
+                                    ng-model="selectedExpenditure.Account"
+                                    placeholder="Select an account"
+                                    ng-required="true"></select>
+                            <div class="input-group-addon"> A </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
+                    <div class="form-group" ng-form>
+                        <input type="text" class="form-control" date-picker
+                               ng-model="selectedExpenditure.ExpenditureDate"
+                               ng-required="true"
+                               model-name="expenditureDate" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

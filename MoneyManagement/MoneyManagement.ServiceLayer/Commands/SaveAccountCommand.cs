@@ -19,7 +19,7 @@ namespace MoneyManagement.ServiceLayer.Commands
         public Guid CultureId { get; set; }
         public class Result
         {
-            public List<AccountPresentation> AccountPresentations { get; set; }
+            public int EffectiveRows { get; set; }
         }
     }
 
@@ -58,20 +58,11 @@ namespace MoneyManagement.ServiceLayer.Commands
             };
             _db.AccountTranslations.Add(translation);
 
-            await _db.SaveChangesAsync();
-
-            var accounts = await _db.Accounts.Where(x => x.UserId == command.UserId).ToListAsync();
-
-            var result = accounts.Select(x => new AccountPresentation
-            {
-                KeyId = x.KeyId,
-                Balance = x.Balance,
-                DisplayName = x.Translations.Any() ? string.Format("[{0}] {1}", x.ShortName, x.Translations.FirstOrDefault(y => y.CultureId == command.CultureId)?.Name) : x.ShortName
-            }).ToList();
+            var effectiveRows = await _db.SaveChangesAsync();
 
             return new SaveAccountCommand.Result
             {
-                AccountPresentations = result
+                EffectiveRows = effectiveRows
             };
         }
     }

@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
+using MoneyManagement.ServiceLayer.ClientPresentations;
 using MoneyManagement.ServiceLayer.Commands;
 using MoneyManagement.ServiceLayer.Interfaces;
 using MoneyManagement.ServiceLayer.Queries;
@@ -33,9 +35,15 @@ namespace MoneyManagement.Web.Controllers.Finance
         }
 
         [HttpPost]
-        public async Task<SaveAccountCommand.Result> Post([FromBody]SaveAccountCommand command)
+        public async Task<GetAccountQuery.Result> Post([FromBody]SaveAccountCommand command)
         {
-            return await _commandDispatcher.Execute<SaveAccountCommand, SaveAccountCommand.Result>(command);
+            await _commandDispatcher.Execute<SaveAccountCommand, SaveAccountCommand.Result>(command);
+            var accounts = await _queryDispatcher.Execute<GetAccountQuery, GetAccountQuery.Result>(new GetAccountQuery
+            {
+                UserId = command.UserId,
+                CultureId = command.CultureId
+            });
+            return accounts;
         }
 
         public async Task<RemoveAccountCommand.Result> Delete([FromUri]RemoveAccountCommand command)

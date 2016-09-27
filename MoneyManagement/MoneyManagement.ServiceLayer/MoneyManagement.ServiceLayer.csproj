@@ -128,9 +128,11 @@
     <Compile Include="Commands\DepositToExistingAccountCommand.cs" />
     <Compile Include="Commands\RemoveAccountCommand.cs" />
     <Compile Include="Commands\RemoveBudgetCommand.cs" />
+    <Compile Include="Commands\RemoveExpenditureCommand.cs" />
     <Compile Include="Commands\SaveAccountCommand.cs" />
     <Compile Include="Commands\SaveBudgetCommand.cs" />
     <Compile Include="Commands\SaveExpenditureCommand.cs" />
+    <Compile Include="Commands\UpdateExpenditureCommand.cs" />
     <Compile Include="CQRS\CommandDispatcher.cs" />
     <Compile Include="CQRS\QueryDispatcher.cs" />
     <Compile Include="CQRS\ICommand.cs" />

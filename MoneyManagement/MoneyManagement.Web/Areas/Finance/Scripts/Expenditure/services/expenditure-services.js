@@ -15,10 +15,27 @@
             var expenditures = function (cultureId, userId) {
                 return $http.get(url, { params: { cultureId: cultureId, userId: userId } });
             }
+
+            var deleteExpenditure = function (expenditureIds, userId, cultureId) {
+                return $http.delete(url, {
+                    params: {
+                        expenditureIds: expenditureIds,
+                        userId: userId,
+                        cultureId: cultureId
+                    }
+                });
+            }
+
+            var updateExpenditure = function (model) {
+                var expenditureApi = $http.put(url + "/Edit", model);
+                return expenditureApi;
+            }
             return {
                 createNewExpenditureRecord: createNewExpenditureRecord,
                 depositExistingAccount: depositExistingAccount,
-                expenditures: expenditures
+                expenditures: expenditures,
+                deleteExpenditure: deleteExpenditure,
+                updateExpenditure: updateExpenditure
             };
         }])
         .service('accountService', ['$resource', function ($resource) {

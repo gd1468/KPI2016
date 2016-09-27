@@ -23,7 +23,7 @@ namespace MoneyManagement.ServiceLayer.Commands
         public Guid CultureId { get; set; }
         public class Result
         {
-            public List<BudgetPresentation> BudgetPresentations { get; set; }
+            public int EffectiveRows { get; set; }
         }
     }
 
@@ -66,24 +66,11 @@ namespace MoneyManagement.ServiceLayer.Commands
             };
             _db.BudgetTranslations.Add(translation);
 
-            await _db.SaveChangesAsync();
-
-            var budgets = await _db.Budgets.Where(x => x.UserId == command.UserId).ToListAsync();
-
-            var result = budgets.Select(x => new BudgetPresentation
-            {
-                KeyId = x.KeyId,
-                Balance = x.Balance,
-                DisplayName = x.Translations.Any() ? string.Format("[{0}] {1}", x.ShortName, x.Translations.FirstOrDefault(y => y.CultureId == command.CultureId)?.Name) : x.ShortName,
-                EndDate = x.EffectiveTo,
-                Expensed = x.Expensed,
-                StartDate = x.EffectiveFrom,
-                Total = x.Total
-            }).ToList();
+            var effectiveRows = await _db.SaveChangesAsync();
 
             return new SaveBudgetCommand.Result
             {
-                BudgetPresentations = result
+                EffectiveRows = effectiveRows
             };
         }
     }

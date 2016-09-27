@@ -29,7 +29,7 @@ namespace MoneyManagement.ServiceLayer.Commands
         {
             if (command?.BudgetIds == null)
             {
-                throw new ArgumentNullException("There is no selected account");
+                throw new ArgumentNullException("There is no selected budget");
             }
 
             var deletedBudget = await _db.Budgets.Where(x => command.BudgetIds.Contains(x.KeyId)).ToListAsync();

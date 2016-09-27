@@ -56,18 +56,20 @@ angular.module('expenditureApp')
                         expenditureDate: $scope.model.expenditureDate,
                         description: $scope.model.description,
                         userId: $scope.user.keyId,
-                        cultureId: $rootScope.culture.KeyId
+                        cultureId: $scope.culture.KeyId
                     };
                     if ($scope.selectedExpenditureType.type === $scope.expenditureTypes[0]) {
                         model.budgetId = $scope.model.budget.KeyId;
                         expenditureService.createNewExpenditureRecord(model).then(function (response) {
                             $scope.accounts = response.data.AccountPresentations;
                             $scope.budgets = response.data.BudgetPresentations;
+                            $scope.expenditures = response.data.ExpenditurePresentations;
                             $scope.resetForm(form);
                         });
                     } else {
                         expenditureService.depositExistingAccount(model).success(function (data) {
                             $scope.accounts = data.AccountPresentations;
+                            $scope.expenditures = data.ExpenditurePresentations;
                             $scope.resetForm(form);
                         });
                     }
@@ -100,6 +102,10 @@ angular.module('expenditureApp')
                     $scope.model.budget = null;
                 }
                 $("#budgetOption").select2("data", null);
+            });
+
+            $scope.$on('update-expenditures', function (event, data) {
+                $scope.expenditures = data;
             });
 
             $scope.turnOffHistory = function () {

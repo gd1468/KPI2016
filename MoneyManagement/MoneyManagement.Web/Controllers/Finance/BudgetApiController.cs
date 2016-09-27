@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
+using MoneyManagement.ServiceLayer.ClientPresentations;
 using MoneyManagement.ServiceLayer.Commands;
 using MoneyManagement.ServiceLayer.Interfaces;
 using MoneyManagement.ServiceLayer.Queries;
@@ -33,9 +35,15 @@ namespace MoneyManagement.Web.Controllers.Finance
             return await _queryDispatcher.Execute<GetBudgetQuery, GetBudgetQuery.Result>(query);
         }
 
-        public async Task<SaveBudgetCommand.Result> Post([FromBody]SaveBudgetCommand command)
+        public async Task<GetBudgetQuery.Result> Post([FromBody]SaveBudgetCommand command)
         {
-            return await _commandDispatcher.Execute<SaveBudgetCommand, SaveBudgetCommand.Result>(command);
+            await _commandDispatcher.Execute<SaveBudgetCommand, SaveBudgetCommand.Result>(command);
+            var budgets = await _queryDispatcher.Execute<GetBudgetQuery, GetBudgetQuery.Result>(new GetBudgetQuery
+            {
+                CultureId = command.CultureId,
+                UserId = command.UserId
+            });
+            return budgets;
         }
 
         public async Task<RemoveBudgetCommand.Result> Delete([FromUri]RemoveBudgetCommand command)
