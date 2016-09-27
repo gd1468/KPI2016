@@ -41,7 +41,9 @@
                                     ng-model="selectedExpenditure.Budget"
                                     placeholder="Select a budget"
                                     ng-required="!selectedExpenditure.IsIncome"
-                                    ng-disabled="selectedExpenditure.IsIncome"></select>
+                                    ng-disabled="selectedExpenditure.IsIncome">
+                               
+                            </select>
                             <div class="input-group-addon"> B </div>
                         </div>
                     </div>
@@ -62,10 +64,11 @@
                         <div class="input-group">
                             <select class="form-control select2 text-right"
                                     ng-options="account.DisplayName for account in accounts"
-                                    id="selectedAccount"
                                     ng-model="selectedExpenditure.Account"
                                     placeholder="Select an account"
-                                    ng-required="true"></select>
+                                    ng-required="true">
+                                
+                            </select>
                             <div class="input-group-addon"> A </div>
                         </div>
                     </div>

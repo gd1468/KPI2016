@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyManagement.Persistance
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyManagement.Web", "MoneyManagement.Web\MoneyManagement.Web.csproj", "{19EBF0A8-35BF-4B0E-873F-23E897C86DF6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyManagement.ServiceLayer.Test", "MoneyManagement.ServiceLayer.Test\MoneyManagement.ServiceLayer.Test.csproj", "{ED49E1C7-582D-4706-B8ED-A4179F343939}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{19EBF0A8-35BF-4B0E-873F-23E897C86DF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19EBF0A8-35BF-4B0E-873F-23E897C86DF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19EBF0A8-35BF-4B0E-873F-23E897C86DF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED49E1C7-582D-4706-B8ED-A4179F343939}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED49E1C7-582D-4706-B8ED-A4179F343939}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED49E1C7-582D-4706-B8ED-A4179F343939}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED49E1C7-582D-4706-B8ED-A4179F343939}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

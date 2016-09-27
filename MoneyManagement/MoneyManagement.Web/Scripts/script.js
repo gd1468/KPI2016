@@ -6,7 +6,7 @@
 
         });
 
-        $('.select2-no-clear').select2({
+        $('select.select2-no-clear').select2({
 
         });
     }); //script

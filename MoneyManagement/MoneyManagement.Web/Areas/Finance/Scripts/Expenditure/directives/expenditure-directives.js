@@ -93,8 +93,8 @@
                             };
 
                             scope.selectExpenditure = function (expenditure, form) {
-                                scope.selectedExpenditure = expenditure;
                                 scope.isEditing = !scope.isEditing;
+                                scope.selectedExpenditure = expenditure;
                                 form.$setPristine();
                             }
 
