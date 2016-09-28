@@ -1,0 +1,5 @@
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.ClientTest\bin\Debug\MoneyManagement.ClientTest.dll
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.ClientTest\bin\Debug\MoneyManagement.ClientTest.pdb
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.ClientTest\obj\Debug\MoneyManagement.ClientTest.csprojResolveAssemblyReference.cache
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.ClientTest\obj\Debug\MoneyManagement.ClientTest.dll
+D:\Projects\KPI\2016\MoneyManagement\MoneyManagement.ClientTest\obj\Debug\MoneyManagement.ClientTest.pdb

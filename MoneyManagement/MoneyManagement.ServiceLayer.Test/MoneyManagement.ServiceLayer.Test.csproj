@@ -73,14 +73,16 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Commands\DepositToExistingAccountCommandTest.cs" />
+    <Compile Include="Commands\RemoveAccountCommandTest.cs" />
+    <Compile Include="Commands\RemoveBudgetCommandTest.cs" />
+    <Compile Include="Commands\RemoveExpenditureCommandTest.cs" />
     <Compile Include="FakeDb\FakeDbSet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DepositToExistingAccountCommandTest.cs" />
+    <Compile Include="Queries\GetAccountQueryTest.cs" />
+    <Compile Include="Queries\GetBudgetQueryTest.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Commands\" />
-    <Folder Include="Queries\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\MoneyManagement.DomainModel\MoneyManagement.DomainModel.csproj">
       <Project>{EB24D51D-8E8F-45ED-BAC3-C04CD0265F27}</Project>
